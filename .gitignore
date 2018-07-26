@@ -8,6 +8,8 @@
 .springBeans
 */classes/*
 */bin/*
+*/target/*
+*/test-classes/*
 
 # Log file
 *.log
