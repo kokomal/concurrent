@@ -11,7 +11,8 @@ package yuanjun.chen.sync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import yuanjun.chen.sync.SynchronizedDemo.PiePlate;
 import yuanjun.chen.sync.SynchronizedDemo.SyncWay;
@@ -23,7 +24,7 @@ import yuanjun.chen.sync.SynchronizedDemo.SyncWay;
  * @date: 2018年7月26日 下午2:06:26
  */
 public class SynchronizedTest {
-    private static final Logger logger = Logger.getLogger(SynchronizedTest.class);
+    private static final Logger logger = LogManager.getLogger(SynchronizedTest.class);
     private static final int pie_number = 100;
     private static final int pie_eaters = 300;
     @Test
