@@ -29,7 +29,9 @@ public class ReentrantLockDemo {
     }
 
     /**
-     * TreasureBox总共含有jewelleries个资源，每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口，需要根据返回值进行不同的实现
+     * TreasureBox总共含有jewelleries个资源， 
+     * 每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口， 
+     * 需要根据返回值进行不同的实现
      */
     public static class TreasureBox implements Callable<Long>, Runnable {
         private final ReentrantLock key = new ReentrantLock(); // 线程共享显式锁
@@ -108,14 +110,14 @@ public class ReentrantLockDemo {
             }
             return this.jewelleries;
         }
-        
+
         public Long call() throws Exception {
             switch (this.lockway) {
                 case INSTANT: {
                     return ransack_lock();
                 }
-                case TRYLOCK: 
-                case TRYLOCKNOWAIT:{
+                case TRYLOCK:
+                case TRYLOCKNOWAIT: {
                     return ransack_trylock();
                 }
                 case LOCKINTERRUPT: {
@@ -152,6 +154,5 @@ public class ReentrantLockDemo {
 
     }
 
-    public static void main(String[] args) throws Exception {
-    }
+    public static void main(String[] args) throws Exception {}
 }

@@ -98,10 +98,9 @@ public class SynchronizedDemo {
 
         private void acquireOnePie() {
             if (pieNumber > 0) {
-                logger.info("aaa===");
-                System.out.println(Thread.currentThread().getName()  + " has " + pieNumber + " pieces!");
+                logger.info(Thread.currentThread().getName()  + " has " + pieNumber + " pieces!");
                 pieNumber--;
-                System.out.println(Thread.currentThread().getName()  + " eats one pie and the pie has " + pieNumber + " pieces!");
+                logger.info(Thread.currentThread().getName()  + " eats one pie and the pie has " + pieNumber + " pieces!");
             } else {
             }
         }
@@ -117,6 +116,6 @@ public class SynchronizedDemo {
             tp.submit(new Thread(plate));
         }
         tp.shutdown();
-        System.out.println("finally " + plate.pieNumber);
+        logger.info("finally " + plate.pieNumber);
     }
 }
