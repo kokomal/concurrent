@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import yuanjun.chen.common.BadPractice;
 
 /**
  * @ClassName: SynchronizedDemo
@@ -74,6 +75,7 @@ public class SynchronizedDemo {
 
         // 锁定成员变量,注意此处绝不可以对变化的Integer对象进行加锁
         // Integer的自动装箱机制，会指向新的地址，从而导致锁定失效！！！
+        @BadPractice
         public void eat2() throws Exception {
             synchronized (this.pieNumber) {
                 acquireOnePie();
@@ -106,7 +108,6 @@ public class SynchronizedDemo {
     }
 
     public static void main(String[] args) throws Exception {
-        logger.info("wdd- -wq");
         int pieNumber = 10;
         int nEaters = 30;
         SyncWay syncway = SyncWay.SYNC_MEMBER;
