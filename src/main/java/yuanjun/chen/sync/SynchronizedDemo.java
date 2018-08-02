@@ -111,7 +111,7 @@ public class SynchronizedDemo {
         int nEaters = 30;
         SyncWay syncway = SyncWay.SYNC_MEMBER;
         PiePlate plate = new PiePlate(pieNumber, syncway);
-        ExecutorService tp = Executors.newFixedThreadPool(nEaters); // 不要自己写new Thread[].start,会出现不可预知的并发怪异场景
+        ExecutorService tp = Executors.newFixedThreadPool(nEaters);
         for (int i = 0; i < nEaters; i++) {
             tp.submit(new Thread(plate));
         }

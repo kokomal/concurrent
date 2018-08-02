@@ -52,7 +52,7 @@ public class SemaphoreDemo {
         public void run() {
             boolean res = false;
             try {
-                //logger.info("prepare parking " + train);
+                // logger.info("prepare parking " + train);
                 res = trainRails.tryAcquire(1000, TimeUnit.MILLISECONDS);
                 if (res) {
                     polishCar();
