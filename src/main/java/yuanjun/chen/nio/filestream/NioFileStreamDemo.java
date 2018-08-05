@@ -4,6 +4,7 @@
 package yuanjun.chen.nio.filestream;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -61,11 +62,38 @@ public class NioFileStreamDemo {
 			while (buf.hasRemaining()) {
 				System.out.print((char) buf.get());
 			}
-
 			buf.clear();
 			bytesRead = inChannel.read(buf);
 		}
 		aFile.close();
+	}
+	
+	public static void scatterTest(String srcFile) throws Exception {
+		RandomAccessFile aFile = new RandomAccessFile(srcFile, "rw");
+		FileChannel inChannel = aFile.getChannel();
+
+		ByteBuffer header = ByteBuffer.allocate(64);
+		ByteBuffer body   = ByteBuffer.allocate(64);
+
+		ByteBuffer[] bufferArray = { header, body };
+
+		inChannel.read(bufferArray);
+		
+		String val1 = new String(bufferArray[0].array(), "utf-8");
+		String val2 = new String(bufferArray[1].array(), "utf-8");
+		System.out.println(val1 + "---" + val2);
+	}
+	
+	public static void gatherTest(String destFile) throws Exception {
+		ByteBuffer header = ByteBuffer.wrap("基督山恩仇录".getBytes("utf-8"));
+		ByteBuffer body = ByteBuffer.wrap("大仲马作品".getBytes("utf-8"));
+
+		ByteBuffer[] bufferArray = { header, body };
+		FileOutputStream fos = new FileOutputStream(destFile, true); // appendable
+		FileChannel writeChannle = fos.getChannel();
+		writeChannle.write(bufferArray);
+		fos.close();
+		writeChannle.close();
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -74,7 +102,10 @@ public class NioFileStreamDemo {
 		String serial = UUID.randomUUID().toString();
 		//nioCopyFile(url.getFile(), "d://masterpiece" + serial + ".txt");
 	
-		readViaNio(url.getFile());
+		//readViaNio(url.getFile());
 	
+		//scatterTest(url.getFile());
+		
+		gatherTest("d://masterpiece.txt");
 	}
 }
