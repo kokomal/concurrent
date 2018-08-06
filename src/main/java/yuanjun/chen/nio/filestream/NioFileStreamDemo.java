@@ -4,9 +4,7 @@
 package yuanjun.chen.nio.filestream;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.URL;
 import java.nio.ByteBuffer;
@@ -21,7 +19,6 @@ public class NioFileStreamDemo {
 	/**
 	 * 从原始路径拷贝文件到新路径 如果新路径不存在，则新建，已有，则尾部添加
 	 */
-	@SuppressWarnings("resource")
 	public static void nioCopyFile(String srcFile, String destFile) throws Exception {
 		FileInputStream fis = new FileInputStream(srcFile);
 		FileOutputStream fos = new FileOutputStream(destFile, true); // appendable
@@ -37,6 +34,8 @@ public class NioFileStreamDemo {
 			buffer.flip();
 			writeChannle.write(buffer);
 		}
+		System.out.println(readChannel.size()); // 输出readChannel对应的文件的大小（Byte）
+		System.out.println(writeChannle.size()); // 输出readChannel对应的文件的大小（Byte）
 		readChannel.close();
 		writeChannle.close();
 		fis.close();
@@ -68,7 +67,8 @@ public class NioFileStreamDemo {
 		aFile.close();
 	}
 	
-	public static void scatterTest(String srcFile) throws Exception {
+	@SuppressWarnings("resource")
+    public static void scatterTest(String srcFile) throws Exception {
 		RandomAccessFile aFile = new RandomAccessFile(srcFile, "rw");
 		FileChannel inChannel = aFile.getChannel();
 
@@ -100,12 +100,12 @@ public class NioFileStreamDemo {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		URL url = classLoader.getResource("wordsworth.txt");
 		String serial = UUID.randomUUID().toString();
-		//nioCopyFile(url.getFile(), "d://masterpiece" + serial + ".txt");
+		nioCopyFile(url.getFile(), "d://masterpiece" + serial + ".txt");
 	
 		//readViaNio(url.getFile());
 	
 		//scatterTest(url.getFile());
 		
-		gatherTest("d://masterpiece.txt");
+		//gatherTest("d://masterpiece.txt");
 	}
 }
