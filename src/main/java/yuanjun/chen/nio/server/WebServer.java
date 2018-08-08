@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class WebServer {
     private static final Logger logger = LogManager.getLogger(WebServer.class);
-    
+
     public static void open() {
         try {
             ServerSocketChannel ssc = ServerSocketChannel.open();
@@ -27,7 +27,7 @@ public class WebServer {
 
             ByteBuffer readBuff = ByteBuffer.allocate(1024);
             ByteBuffer writeBuff = ByteBuffer.allocate(128);
-            while (true) {
+            do {
                 int nReady = selector.selectNow();
                 Set<SelectionKey> keys = selector.selectedKeys();
                 Iterator<SelectionKey> it = keys.iterator();
@@ -46,7 +46,8 @@ public class WebServer {
                         readBuff.clear();
                         socketChannel.read(readBuff);
                         readBuff.flip();
-                        logger.info("from " + socketChannel.socket().getPort() + " received : " + new String(readBuff.array()));
+                        logger.info("from " + socketChannel.socket().getPort() + " received : "
+                                + new String(readBuff.array()));
                         key.interestOps(SelectionKey.OP_WRITE); // 读完后写
                     } else if (key.isWritable()) {
                         SocketChannel socketChannel = (SocketChannel) key.channel();
@@ -57,7 +58,7 @@ public class WebServer {
                         key.interestOps(SelectionKey.OP_READ); // 写好后读，交叉
                     }
                 }
-            }
+            } while (true);
         } catch (IOException e) {
             e.printStackTrace();
         }

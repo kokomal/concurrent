@@ -31,7 +31,6 @@ public class MyLinkedBlockingQueue<T extends Object> {
     private final AtomicInteger count;
 
     public MyLinkedBlockingQueue(int capacity) {
-        super();
         this.capacity = capacity;
         this.listval = new LinkedList<T>();
         this.lock = new ReentrantLock();
@@ -67,13 +66,14 @@ public class MyLinkedBlockingQueue<T extends Object> {
             lock.unlock();
         }
     }
-    
-    public T takeWithOT(long time, TimeUnit unit) throws Exception {
+        public T takeWithOT(long time, TimeUnit unit) throws Exception {
         lock.lock();
         try {
             while (this.count.get() == 0) {
                 boolean waiteSuccess = notEmpty.await(time, unit); // 等待指定时间
-                if (!waiteSuccess) throw new Exception("OverTime!"); // 超时了，跳出去
+                if (!waiteSuccess) {
+                    throw new Exception("OverTime!");
+                } // 超时了，跳出去
             }
             T rem = this.listval.remove(this.count.decrementAndGet());
             notFull.signalAll(); // 可以加了
@@ -82,8 +82,7 @@ public class MyLinkedBlockingQueue<T extends Object> {
             lock.unlock();
         }
     }
-    
-    public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
         MyLinkedBlockingQueue<Integer> mq = new MyLinkedBlockingQueue<Integer>(4);
         mq.add(11);
         mq.add(22);

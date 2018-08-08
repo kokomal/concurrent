@@ -1,6 +1,3 @@
-/**
- * 
- */
 package yuanjun.chen.nio.filestream;
 
 import java.io.BufferedReader;
@@ -12,14 +9,13 @@ import java.util.UUID;
 
 /**
  * @author hp
- *
  */
 public class OioFileStreamDemo {
 	public static void oioCopyFile(String srcFile, String destFile) throws Exception {
 		FileInputStream fis = new FileInputStream(srcFile);
 		FileOutputStream fos = new FileOutputStream(destFile, true); // appendable
 		byte[] buf = new byte[512];
-		while (true) {
+		do {
 			if (fis.read(buf) != -1) {
 				System.out.println(new String(buf, "utf-8"));
 				fos.write(buf);
@@ -27,7 +23,7 @@ public class OioFileStreamDemo {
 			} else {
 				break;
 			}
-		}
+		} while (true);
 		fis.close();
 		fos.close();
 	}

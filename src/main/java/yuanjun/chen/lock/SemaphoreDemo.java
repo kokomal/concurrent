@@ -33,12 +33,11 @@ public class SemaphoreDemo {
         private Train train;
 
         public SodorIsland(Semaphore trainRails, Train train) {
-            super();
             this.train = train;
             this.trainRails = trainRails;
         }
 
-        // 每次处理耗时2000ms
+        /** 每次处理耗时2000ms. */
         private void polishCar() throws Exception {
             logger.info("WELCOME! " + train + ", the available trainRails = " 
                     + trainRails.availablePermits()); // 这个available不一定准确了,因为semaphore不排他
@@ -92,11 +91,11 @@ public class SemaphoreDemo {
         }
 
         tp.shutdown();
-        while (true) {
+        do {
             if (tp.isTerminated()) { // isTerminated必须前置shutdown，否则会一直等待！
                 logger.info("all tasks end");
                 break;
             }
-        }
+        } while (true);
     }
 }

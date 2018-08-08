@@ -25,17 +25,10 @@ public class Train {
 
     public static Train genUUTrain() {
         Random rd = new Random();
-        Train tr = new Train(UUID.randomUUID().toString(), (float)(rd.nextFloat() % 1000.0), rd.nextInt(200));
-        return tr;
+        return new Train(UUID.randomUUID().toString(), (float) (rd.nextFloat() % 1000.0), rd.nextInt(200));
     }
-    
-    /**
-     * @param name
-     * @param fuel
-     * @param carriages
-     */
+
     public Train(String name, Float fuel, int carriages) {
-        super();
         this.name = name;
         this.fuel = fuel;
         this.carriages = carriages;

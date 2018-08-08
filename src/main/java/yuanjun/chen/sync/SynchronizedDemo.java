@@ -23,7 +23,7 @@ import yuanjun.chen.common.BadPractice;
  */
 public class SynchronizedDemo {
     private static final Logger logger = LogManager.getLogger(SynchronizedDemo.class);
-    public static enum SyncWay {
+    public enum SyncWay {
         SYNC_METHOD, SYNC_MEMBER, SYNC_OBJECT, SYNC_CLASS;
     }
     public static class PiePlate implements Runnable {
@@ -36,8 +36,7 @@ public class SynchronizedDemo {
         }
 
         public PiePlate(Integer pieNumber, SyncWay syncWay) {
-            super();
-            this.pieNumber = new Integer(pieNumber);
+            this.pieNumber = pieNumber;
             this.syncWay = syncWay;
         }
 
@@ -68,13 +67,12 @@ public class SynchronizedDemo {
             }
         }
 
-        // 同步方法，非常安全，但性能会打折扣，尤其是方法内的业务比较冗长时
-        synchronized public void eat1() {
+        /** 同步方法，非常安全，但性能会打折扣，尤其是方法内的业务比较冗长时. */
+        public synchronized void eat1() {
             acquireOnePie();
         }
 
-        // 锁定成员变量,注意此处绝不可以对变化的Integer对象进行加锁
-        // Integer的自动装箱机制，会指向新的地址，从而导致锁定失效！！！
+        /** 锁定成员变量,注意此处绝不可以对变化的Integer对象进行加锁 Integer的自动装箱机制，会指向新的地址，从而导致锁定失效！！！. */
         @BadPractice
         public void eat2() throws Exception {
             synchronized (this.pieNumber) {
@@ -82,14 +80,14 @@ public class SynchronizedDemo {
             }
         }
 
-        // 锁定Object锁
+        /** 锁定Object锁. */
         public void eat3() {
             synchronized (commonLock) {
                 acquireOnePie();
             }
         }
 
-        // 锁定类锁
+        /** 锁定类锁. */
         public void eat4() {
             synchronized (PiePlate.class) {
                 acquireOnePie();
@@ -101,7 +99,6 @@ public class SynchronizedDemo {
                 logger.info(Thread.currentThread().getName()  + " has " + pieNumber + " pieces!");
                 pieNumber--;
                 logger.info(Thread.currentThread().getName()  + " eats one pie and the pie has " + pieNumber + " pieces!");
-            } else {
             }
         }
     }

@@ -28,14 +28,12 @@ public class ReentrantLockDemo {
         INSTANT, TRYLOCK, TRYLOCKNOWAIT, LOCKINTERRUPT;
     }
 
-    /**
-     * TreasureBox总共含有jewelleries个资源， 
-     * 每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口， 
-     * 需要根据返回值进行不同的实现
-     */
+    /** TreasureBox总共含有jewelleries个资源， 每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口， 需要根据返回值进行不同的实现. */
     public static class TreasureBox implements Callable<Long>, Runnable {
-        private final ReentrantLock key = new ReentrantLock(); // 线程共享显式锁
-        private Long jewelleries; // 珠宝
+        /** 线程共享显式锁. */
+        private final ReentrantLock key = new ReentrantLock();
+        /** 珠宝. */
+        private Long jewelleries;
         private LockWay lockway;
 
         public Long getJewelleries() {
@@ -43,7 +41,6 @@ public class ReentrantLockDemo {
         }
 
         public TreasureBox(Long jewelleries, LockWay lockway) {
-            super();
             this.jewelleries = jewelleries;
             this.lockway = lockway;
         }
@@ -54,7 +51,7 @@ public class ReentrantLockDemo {
                 if (LockWay.TRYLOCKNOWAIT.equals(this.lockway)) {
                     res = key.tryLock();
                 } else {
-                    res = key.tryLock(10l, TimeUnit.MILLISECONDS); // 最多等10ms
+                    res = key.tryLock(10L, TimeUnit.MILLISECONDS); // 最多等10ms
                 }
                 if (res) {
                     return ransack();
@@ -67,7 +64,7 @@ public class ReentrantLockDemo {
                     key.unlock(); // 如果未能获得锁，不能贸然unlock
                 }
             }
-            return 0l;
+            return 0L;
         }
 
         public Long ransack_lock() {
@@ -78,7 +75,7 @@ public class ReentrantLockDemo {
             } finally {
                 key.unlock();
             }
-            return 0l;
+            return 0L;
         }
 
         public Long ransack_lockinetrruptibly() {
@@ -89,31 +86,31 @@ public class ReentrantLockDemo {
                 return jewelleries;
             } catch (InterruptedException e) {
                 logger.info("compensation begins!");
-                jewelleries += 10l; // 打断并在返回前补偿
+                jewelleries += 10L; // 打断并在返回前补偿
                 return jewelleries;
             } catch (Exception ex) {
-
             } finally {
                 key.unlock();
             }
-            return 0l;
+            return 0L;
         }
 
         private Long ransack() {
-            long ran = 10l;
+            long ran = 10L;
             if (this.jewelleries > ran) {
                 this.jewelleries -= ran;
                 logger.info("ransacked " + ran + " and jewelleries left =" + this.jewelleries);
             } else {
                 logger.warn("jewelleries less than ran, show all " + this.jewelleries);
-                this.jewelleries = 0l;
+                this.jewelleries = 0L;
             }
             return this.jewelleries;
         }
 
         public Long call() throws Exception {
             switch (this.lockway) {
-                case INSTANT: {
+                case INSTANT: default:
+                    {
                     return ransack_lock();
                 }
                 case TRYLOCK:
@@ -123,15 +120,13 @@ public class ReentrantLockDemo {
                 case LOCKINTERRUPT: {
                     return ransack_lockinetrruptibly();
                 }
-                default: {
-                    return ransack_lock();
-                }
             }
         }
 
         public void run() {
             switch (this.lockway) {
-                case INSTANT: {
+                case INSTANT: default:
+                    {
                     ransack_lock();
                     break;
                 }
@@ -144,14 +139,8 @@ public class ReentrantLockDemo {
                     ransack_lockinetrruptibly();
                     break;
                 }
-                default: {
-                    ransack_lock();
-                    break;
-                }
             }
-
         }
-
     }
 
     public static void main(String[] args) throws Exception {}

@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 public class WebClient {
     private static final Logger logger = LogManager.getLogger(WebClient.class);
-    
+
     public static void start(String content) throws Exception {
         try {
             SocketChannel socketChannel = SocketChannel.open();
@@ -21,7 +21,7 @@ public class WebClient {
             writeBuffer.put(content.getBytes());
             writeBuffer.flip();
 
-            while (true) {
+            do {
                 writeBuffer.rewind();
                 while (writeBuffer.hasRemaining()) {
                     socketChannel.write(writeBuffer);
@@ -30,7 +30,7 @@ public class WebClient {
                 socketChannel.read(readBuffer);
                 readBuffer.flip();
                 logger.info("client get " + new String(readBuffer.array()));
-            }
+            } while (true);
         } catch (IOException e) {
             logger.info("eerr" + e);
         }
