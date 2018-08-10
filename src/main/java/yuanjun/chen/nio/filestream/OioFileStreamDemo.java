@@ -28,7 +28,6 @@ public class OioFileStreamDemo {
 		fos.close();
 	}
 
-	@SuppressWarnings("resource")
 	public static void oioReadline(String srcFile, String destFile) throws Exception {
 		InputStreamReader read = new InputStreamReader(new FileInputStream(srcFile), "UTF-8");
 		BufferedReader reader = new BufferedReader(read);
