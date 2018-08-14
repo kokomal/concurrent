@@ -12,8 +12,8 @@ package yuanjun.chen.nio;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
-import yuanjun.chen.nio.server.WebClient;
-import yuanjun.chen.nio.server.WebServer;
+import yuanjun.chen.nio.niopair.WebClient;
+import yuanjun.chen.nio.niopair.WebServer;
 
 /**
  * @ClassName: ServerClientTest
@@ -22,8 +22,8 @@ import yuanjun.chen.nio.server.WebServer;
  * @author: 陈元俊
  * @date: 2018年8月6日 下午2:54:50
  */
-public class ServerClientTest {
-    private static final Logger logger = LogManager.getLogger(ServerClientTest.class);
+public class NioServerClientTest {
+    private static final Logger logger = LogManager.getLogger(NioServerClientTest.class);
 
     public static class Cli implements Runnable {
         int arg;
@@ -58,6 +58,18 @@ public class ServerClientTest {
             ts[i].start();
         }
         t1.join();
+        for (int i = 0; i < 10; i++) {
+            ts[i].join();
+        }
+    }
+    
+    @Test
+    public void testClientOnly() throws Exception {
+        Thread[] ts = new Thread[10];
+        for (int i = 0; i < 10; i++) {
+            ts[i] = new Thread(new Cli(i));
+            ts[i].start();
+        }
         for (int i = 0; i < 10; i++) {
             ts[i].join();
         }

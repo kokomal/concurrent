@@ -1,4 +1,4 @@
-package yuanjun.chen.nio.server;
+package yuanjun.chen.nio.niopair;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -13,7 +13,7 @@ public class WebClient {
     public static void start(String content) throws Exception {
         try {
             SocketChannel socketChannel = SocketChannel.open();
-            socketChannel.connect(new InetSocketAddress("127.0.0.1", 6777));
+            socketChannel.connect(new InetSocketAddress("127.0.0.1", 44332));
 
             ByteBuffer writeBuffer = ByteBuffer.allocate(128);
             ByteBuffer readBuffer = ByteBuffer.allocate(128);

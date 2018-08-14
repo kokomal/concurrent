@@ -1,4 +1,4 @@
-package yuanjun.chen.nio.server;
+package yuanjun.chen.nio.niopair;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -18,7 +18,7 @@ public class WebServer {
     public static void open() {
         try {
             ServerSocketChannel ssc = ServerSocketChannel.open();
-            ssc.socket().bind(new InetSocketAddress("127.0.0.1", 6777));
+            ssc.socket().bind(new InetSocketAddress("127.0.0.1", 44332));
             ssc.configureBlocking(false);
 
             Selector selector = Selector.open();
