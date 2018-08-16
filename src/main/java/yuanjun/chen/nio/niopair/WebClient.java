@@ -10,10 +10,10 @@ import org.apache.logging.log4j.Logger;
 public class WebClient {
     private static final Logger logger = LogManager.getLogger(WebClient.class);
 
-    public static void start(String content) throws Exception {
+    public static void start(String content, int port) throws Exception {
         try {
             SocketChannel socketChannel = SocketChannel.open();
-            socketChannel.connect(new InetSocketAddress("127.0.0.1", 44332));
+            socketChannel.connect(new InetSocketAddress("127.0.0.1", port));
 
             ByteBuffer writeBuffer = ByteBuffer.allocate(128);
             ByteBuffer readBuffer = ByteBuffer.allocate(128);
@@ -22,6 +22,7 @@ public class WebClient {
             writeBuffer.flip();
 
             do {
+                Thread.sleep(1000);
                 writeBuffer.rewind();
                 while (writeBuffer.hasRemaining()) {
                     socketChannel.write(writeBuffer);

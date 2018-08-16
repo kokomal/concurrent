@@ -15,10 +15,10 @@ import org.apache.logging.log4j.Logger;
 public class WebServer {
     private static final Logger logger = LogManager.getLogger(WebServer.class);
 
-    public static void open() {
+    public static void open(int port) {
         try {
             ServerSocketChannel ssc = ServerSocketChannel.open();
-            ssc.socket().bind(new InetSocketAddress("127.0.0.1", 44332));
+            ssc.socket().bind(new InetSocketAddress("127.0.0.1", port));
             ssc.configureBlocking(false);
 
             Selector selector = Selector.open();

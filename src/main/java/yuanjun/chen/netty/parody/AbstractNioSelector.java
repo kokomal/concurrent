@@ -41,7 +41,8 @@ public abstract class AbstractNioSelector implements Runnable {
     /** 获取selector并启动线程. */
     private void openSelector() {
         try {
-            this.selector = Selector.open();
+            this.selector = Selector.open(); // 每一个的selector都不一样
+            // System.out.println(this.selector);
         } catch (IOException e) {
             throw new RuntimeException("Failed to create a selector.");
         }

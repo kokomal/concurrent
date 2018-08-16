@@ -9,8 +9,6 @@
  */
 package yuanjun.chen.nio;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.junit.Test;
 import yuanjun.chen.nio.oiopair.OioClient;
 import yuanjun.chen.nio.oiopair.OioServer;

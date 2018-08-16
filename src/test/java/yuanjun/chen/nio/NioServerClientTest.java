@@ -26,16 +26,18 @@ public class NioServerClientTest {
     private static final Logger logger = LogManager.getLogger(NioServerClientTest.class);
 
     public static class Cli implements Runnable {
-        int arg;
+        private int arg;
+        private int port;
 
-        public Cli(int arg) {
+        public Cli(int arg, int port) {
             super();
             this.arg = arg;
+            this.port = port;
         }
 
         public void run() {
             try {
-                WebClient.start("Hello" + arg);
+                WebClient.start("Hello" + arg, port);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -44,17 +46,18 @@ public class NioServerClientTest {
 
     @Test
     public void testServerAndClient() throws Exception {
+        int port = 44332;
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 logger.info("haha---");
-                WebServer.open();
+                WebServer.open(port);
             }
         });
         t1.start();
         logger.info("break---");
         Thread[] ts = new Thread[10];
         for (int i = 0; i < 10; i++) {
-            ts[i] = new Thread(new Cli(i));
+            ts[i] = new Thread(new Cli(i, port));
             ts[i].start();
         }
         t1.join();
@@ -65,9 +68,10 @@ public class NioServerClientTest {
     
     @Test
     public void testClientOnly() throws Exception {
+        int port = 44332;
         Thread[] ts = new Thread[10];
         for (int i = 0; i < 10; i++) {
-            ts[i] = new Thread(new Cli(i));
+            ts[i] = new Thread(new Cli(i, port));
             ts[i].start();
         }
         for (int i = 0; i < 10; i++) {

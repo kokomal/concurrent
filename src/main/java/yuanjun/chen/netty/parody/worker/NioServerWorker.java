@@ -26,7 +26,6 @@ public class NioServerWorker extends AbstractNioSelector implements Worker {
     protected void process(Selector selector) throws IOException {
         Set<SelectionKey> selectedKeys = selector.selectedKeys();
         if (selectedKeys.isEmpty()) {
-            System.out.println("no buziness");
             return;
         }
         Iterator<SelectionKey> ite = this.selector.selectedKeys().iterator();
@@ -56,6 +55,11 @@ public class NioServerWorker extends AbstractNioSelector implements Worker {
                 // 回写数据
                 ByteBuffer outBuffer = ByteBuffer.wrap("收到\n".getBytes());
                 channel.write(outBuffer);// 将消息回送给客户端
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
