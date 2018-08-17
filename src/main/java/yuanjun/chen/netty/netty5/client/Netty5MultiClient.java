@@ -1,9 +1,8 @@
 package yuanjun.chen.netty.netty5.client;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -26,13 +25,11 @@ public class Netty5MultiClient {
     public static void start(int nCli, int port) {
         Netty5MultiClient client = new Netty5MultiClient();
         client.init(nCli, port);
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             try {
-                System.out.println("请输入:");
-                String msg = bufferedReader.readLine();
+                String msg = UUID.randomUUID().toString();
                 client.nextChannel().writeAndFlush(msg);
+                Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -40,17 +37,14 @@ public class Netty5MultiClient {
     }
 
     private int port;
-    
     /**
      * 服务类
      */
     private Bootstrap bootstrap = new Bootstrap();
-
     /**
      * 会话
      */
     private List<Channel> channels = new ArrayList<>();
-
     /**
      * 引用计数
      */
@@ -65,16 +59,12 @@ public class Netty5MultiClient {
         this.port = port;
         // worker
         EventLoopGroup worker = new NioEventLoopGroup();
-
         // 设置线程池
         bootstrap.group(worker);
-
-        // 设置socket工厂、
+        // 设置socket工厂
         bootstrap.channel(NioSocketChannel.class);
-
         // 设置管道
         bootstrap.handler(new ChannelInitializer<Channel>() {
-
             @Override
             protected void initChannel(Channel ch) throws Exception {
                 ch.pipeline().addLast(new StringDecoder());
@@ -105,6 +95,7 @@ public class Netty5MultiClient {
             // 重连
             reconnect(channel);
             if (count >= channels.size()) {
+                System.out.println("count=" + count + " while channels.size=" + channels.size());
                 throw new RuntimeException("no can use channel");
             }
             return getFirstActiveChannel(count + 1);

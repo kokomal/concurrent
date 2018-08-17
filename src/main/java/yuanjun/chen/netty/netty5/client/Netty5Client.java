@@ -1,7 +1,6 @@
 package yuanjun.chen.netty.netty5.client;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.UUID;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -23,20 +22,16 @@ public class Netty5Client {
     public static void start(int port) {
         // 服务类
         Bootstrap bootstrap = new Bootstrap();
-
         // worker
         EventLoopGroup worker = new NioEventLoopGroup();
 
         try {
             // 设置线程池
             bootstrap.group(worker);
-
             // 设置socket工厂
             bootstrap.channel(NioSocketChannel.class);
-
             // 设置管道
             bootstrap.handler(new ChannelInitializer<Channel>() {
-
                 @Override
                 protected void initChannel(Channel ch) throws Exception {
                     ch.pipeline().addLast(new StringDecoder());
@@ -46,12 +41,10 @@ public class Netty5Client {
             });
 
             ChannelFuture connect = bootstrap.connect("127.0.0.1", port);
-
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
-                System.out.println("请输入：");
-                String msg = bufferedReader.readLine();
+                String msg = UUID.randomUUID().toString();
                 connect.channel().writeAndFlush(msg);
+                Thread.sleep(1000);
             }
 
         } catch (Exception e) {
@@ -60,5 +53,4 @@ public class Netty5Client {
             worker.shutdownGracefully();
         }
     }
-
 }

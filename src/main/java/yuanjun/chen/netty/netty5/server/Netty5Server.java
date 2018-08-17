@@ -52,7 +52,6 @@ public class Netty5Server {
 
             // 设置管道工厂
             bootstrap.childHandler(new ChannelInitializer<Channel>() {
-
                 @Override
                 protected void initChannel(Channel ch) throws Exception {
                     ch.pipeline().addLast(new StringDecoder());

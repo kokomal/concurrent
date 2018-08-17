@@ -13,11 +13,9 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, String msg) throws Exception {
-
         System.out.println("Server received " + msg);
-
         ctx.channel().writeAndFlush("hi");
-        ctx.writeAndFlush("hi");
+        //ctx.writeAndFlush("hi");
     }
 
     /**
