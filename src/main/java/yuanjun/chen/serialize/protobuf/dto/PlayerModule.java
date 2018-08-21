@@ -23,7 +23,7 @@ public final class PlayerModule {
      * 3取消了required关键字
      * </pre>
      *
-     * <code>int64 playerId = 1;</code>
+     * <code>optional int64 playerId = 1;</code>
      */
     long getPlayerId();
 
@@ -32,7 +32,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int32 age = 2;</code>
+     * <code>optional int32 age = 2;</code>
      */
     int getAge();
 
@@ -41,7 +41,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>optional string name = 3;</code>
      */
     java.lang.String getName();
     /**
@@ -49,7 +49,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>optional string name = 3;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -86,7 +86,6 @@ public final class PlayerModule {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:PBPlayer)
       PBPlayerOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use PBPlayer.newBuilder() to construct.
     private PBPlayer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -101,19 +100,14 @@ public final class PlayerModule {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private PBPlayer(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -122,6 +116,12 @@ public final class PlayerModule {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 8: {
 
               playerId_ = input.readInt64();
@@ -159,13 +159,6 @@ public final class PlayerModule {
               input.popLimit(limit);
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -177,7 +170,6 @@ public final class PlayerModule {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           skills_ = java.util.Collections.unmodifiableList(skills_);
         }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -186,7 +178,6 @@ public final class PlayerModule {
       return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
@@ -202,7 +193,7 @@ public final class PlayerModule {
      * 3取消了required关键字
      * </pre>
      *
-     * <code>int64 playerId = 1;</code>
+     * <code>optional int64 playerId = 1;</code>
      */
     public long getPlayerId() {
       return playerId_;
@@ -215,7 +206,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int32 age = 2;</code>
+     * <code>optional int32 age = 2;</code>
      */
     public int getAge() {
       return age_;
@@ -228,7 +219,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>optional string name = 3;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -247,7 +238,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>string name = 3;</code>
+     * <code>optional string name = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -299,7 +290,6 @@ public final class PlayerModule {
     private int skillsMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -309,7 +299,6 @@ public final class PlayerModule {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -329,10 +318,8 @@ public final class PlayerModule {
       for (int i = 0; i < skills_.size(); i++) {
         output.writeInt32NoTag(skills_.get(i));
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -363,11 +350,11 @@ public final class PlayerModule {
         }
         skillsMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -387,7 +374,6 @@ public final class PlayerModule {
           .equals(other.getName());
       result = result && getSkillsList()
           .equals(other.getSkillsList());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -397,7 +383,7 @@ public final class PlayerModule {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPlayerId());
@@ -414,17 +400,6 @@ public final class PlayerModule {
       return hash;
     }
 
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -484,7 +459,6 @@ public final class PlayerModule {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -492,7 +466,6 @@ public final class PlayerModule {
     public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -516,7 +489,6 @@ public final class PlayerModule {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
@@ -539,7 +511,6 @@ public final class PlayerModule {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         playerId_ = 0L;
@@ -553,18 +524,15 @@ public final class PlayerModule {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.getDefaultInstance();
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer build() {
         yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = buildPartial();
         if (!result.isInitialized()) {
@@ -573,7 +541,6 @@ public final class PlayerModule {
         return result;
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer buildPartial() {
         yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer(this);
         int from_bitField0_ = bitField0_;
@@ -591,39 +558,32 @@ public final class PlayerModule {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) {
           return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer)other);
@@ -655,17 +615,14 @@ public final class PlayerModule {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -691,7 +648,7 @@ public final class PlayerModule {
        * 3取消了required关键字
        * </pre>
        *
-       * <code>int64 playerId = 1;</code>
+       * <code>optional int64 playerId = 1;</code>
        */
       public long getPlayerId() {
         return playerId_;
@@ -701,7 +658,7 @@ public final class PlayerModule {
        * 3取消了required关键字
        * </pre>
        *
-       * <code>int64 playerId = 1;</code>
+       * <code>optional int64 playerId = 1;</code>
        */
       public Builder setPlayerId(long value) {
         
@@ -714,7 +671,7 @@ public final class PlayerModule {
        * 3取消了required关键字
        * </pre>
        *
-       * <code>int64 playerId = 1;</code>
+       * <code>optional int64 playerId = 1;</code>
        */
       public Builder clearPlayerId() {
         
@@ -729,7 +686,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 age = 2;</code>
+       * <code>optional int32 age = 2;</code>
        */
       public int getAge() {
         return age_;
@@ -739,7 +696,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 age = 2;</code>
+       * <code>optional int32 age = 2;</code>
        */
       public Builder setAge(int value) {
         
@@ -752,7 +709,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 age = 2;</code>
+       * <code>optional int32 age = 2;</code>
        */
       public Builder clearAge() {
         
@@ -767,7 +724,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>optional string name = 3;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -786,7 +743,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>optional string name = 3;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -806,7 +763,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>optional string name = 3;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -823,7 +780,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>optional string name = 3;</code>
        */
       public Builder clearName() {
         
@@ -836,7 +793,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>string name = 3;</code>
+       * <code>optional string name = 3;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -943,16 +900,14 @@ public final class PlayerModule {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -971,12 +926,11 @@ public final class PlayerModule {
 
     private static final com.google.protobuf.Parser<PBPlayer>
         PARSER = new com.google.protobuf.AbstractParser<PBPlayer>() {
-      @java.lang.Override
       public PBPlayer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PBPlayer(input, extensionRegistry);
+          return new PBPlayer(input, extensionRegistry);
       }
     };
 
@@ -989,7 +943,6 @@ public final class PlayerModule {
       return PARSER;
     }
 
-    @java.lang.Override
     public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1005,7 +958,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int64 gold = 1;</code>
+     * <code>optional int64 gold = 1;</code>
      */
     long getGold();
 
@@ -1014,7 +967,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int32 energy = 2;</code>
+     * <code>optional int32 energy = 2;</code>
      */
     int getEnergy();
   }
@@ -1025,7 +978,6 @@ public final class PlayerModule {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:PBResource)
       PBResourceOrBuilder {
-  private static final long serialVersionUID = 0L;
     // Use PBResource.newBuilder() to construct.
     private PBResource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1038,19 +990,14 @@ public final class PlayerModule {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private PBResource(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1059,6 +1006,12 @@ public final class PlayerModule {
             case 0:
               done = true;
               break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
             case 8: {
 
               gold_ = input.readInt64();
@@ -1069,13 +1022,6 @@ public final class PlayerModule {
               energy_ = input.readInt32();
               break;
             }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1084,7 +1030,6 @@ public final class PlayerModule {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1093,7 +1038,6 @@ public final class PlayerModule {
       return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
     }
 
-    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
@@ -1108,7 +1052,7 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int64 gold = 1;</code>
+     * <code>optional int64 gold = 1;</code>
      */
     public long getGold() {
       return gold_;
@@ -1121,14 +1065,13 @@ public final class PlayerModule {
      * required 
      * </pre>
      *
-     * <code>int32 energy = 2;</code>
+     * <code>optional int32 energy = 2;</code>
      */
     public int getEnergy() {
       return energy_;
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1138,7 +1081,6 @@ public final class PlayerModule {
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (gold_ != 0L) {
@@ -1147,10 +1089,8 @@ public final class PlayerModule {
       if (energy_ != 0) {
         output.writeInt32(2, energy_);
       }
-      unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1164,11 +1104,11 @@ public final class PlayerModule {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, energy_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1184,7 +1124,6 @@ public final class PlayerModule {
           == other.getGold());
       result = result && (getEnergy()
           == other.getEnergy());
-      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1194,7 +1133,7 @@ public final class PlayerModule {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + GOLD_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getGold());
@@ -1205,17 +1144,6 @@ public final class PlayerModule {
       return hash;
     }
 
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1275,7 +1203,6 @@ public final class PlayerModule {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1283,7 +1210,6 @@ public final class PlayerModule {
     public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1307,7 +1233,6 @@ public final class PlayerModule {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
       }
 
-      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
@@ -1330,7 +1255,6 @@ public final class PlayerModule {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
       public Builder clear() {
         super.clear();
         gold_ = 0L;
@@ -1340,18 +1264,15 @@ public final class PlayerModule {
         return this;
       }
 
-      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
         return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.getDefaultInstance();
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource build() {
         yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = buildPartial();
         if (!result.isInitialized()) {
@@ -1360,7 +1281,6 @@ public final class PlayerModule {
         return result;
       }
 
-      @java.lang.Override
       public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource buildPartial() {
         yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource(this);
         result.gold_ = gold_;
@@ -1369,39 +1289,32 @@ public final class PlayerModule {
         return result;
       }
 
-      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
-      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
-      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) {
           return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource)other);
@@ -1419,17 +1332,14 @@ public final class PlayerModule {
         if (other.getEnergy() != 0) {
           setEnergy(other.getEnergy());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1454,7 +1364,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int64 gold = 1;</code>
+       * <code>optional int64 gold = 1;</code>
        */
       public long getGold() {
         return gold_;
@@ -1464,7 +1374,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int64 gold = 1;</code>
+       * <code>optional int64 gold = 1;</code>
        */
       public Builder setGold(long value) {
         
@@ -1477,7 +1387,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int64 gold = 1;</code>
+       * <code>optional int64 gold = 1;</code>
        */
       public Builder clearGold() {
         
@@ -1492,7 +1402,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 energy = 2;</code>
+       * <code>optional int32 energy = 2;</code>
        */
       public int getEnergy() {
         return energy_;
@@ -1502,7 +1412,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 energy = 2;</code>
+       * <code>optional int32 energy = 2;</code>
        */
       public Builder setEnergy(int value) {
         
@@ -1515,7 +1425,7 @@ public final class PlayerModule {
        * required 
        * </pre>
        *
-       * <code>int32 energy = 2;</code>
+       * <code>optional int32 energy = 2;</code>
        */
       public Builder clearEnergy() {
         
@@ -1523,16 +1433,14 @@ public final class PlayerModule {
         onChanged();
         return this;
       }
-      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return this;
       }
 
-      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -1551,12 +1459,11 @@ public final class PlayerModule {
 
     private static final com.google.protobuf.Parser<PBResource>
         PARSER = new com.google.protobuf.AbstractParser<PBResource>() {
-      @java.lang.Override
       public PBResource parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PBResource(input, extensionRegistry);
+          return new PBResource(input, extensionRegistry);
       }
     };
 
@@ -1569,7 +1476,6 @@ public final class PlayerModule {
       return PARSER;
     }
 
-    @java.lang.Override
     public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

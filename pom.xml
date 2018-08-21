@@ -45,6 +45,12 @@
 			<artifactId>protobuf-java</artifactId>
 			<version>3.6.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.esotericsoftware.kryo/kryo -->
+		<dependency>
+			<groupId>com.esotericsoftware.kryo</groupId>
+			<artifactId>kryo</artifactId>
+			<version>2.16</version>
+		</dependency>
 
 	</dependencies>
 
@@ -63,7 +69,7 @@
 				<version>0.5.1</version>
 				<configuration>
 					<protocArtifact>
-						com.google.protobuf:protoc:3.6.1:exe:${os.detected.classifier}
+						com.google.protobuf:protoc:3.1.0:exe:${os.detected.classifier}
 					</protocArtifact>
 					<pluginId>grpc-java</pluginId>
 					<inputDirectories>

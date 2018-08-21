@@ -1,0 +1,29 @@
+// 3.6需要在头部声明支持的语法版本是2还是3
+// 这个proto文件是类的静态声明文件，规定了通讯pojo的基本字段，框架会基于此生成比较重量级的pojo
+syntax = "proto3";
+
+option java_package = "yuanjun.chen.serialize.protobuf.dto";
+option java_outer_classname = "DemoDtoModule";
+
+message DemoDto{
+	
+	int64 id = 1; // 自增主键
+	int64 deliveryDateRaw=2; // 交货期
+	int32 urgentDegree=3; // 紧急程度
+	double materialCost=4; // 转义为double
+	double remunerateCost=5; // 转义为double
+	int32 transportPriority=6; // 运输优先级
+	int32 reservedPriorityA=7; // 预留优先级A
+	int32 reservedPriorityB=8; // 预留优先级B
+	int32 reservedPriorityC=9; // 预留优先级C	
+
+}
+/*
+message BDecimal {
+  int32 scale = 1;
+  BInteger int_val = 2;
+}
+
+message BInteger {
+  bytes value = 1;
+}*/
