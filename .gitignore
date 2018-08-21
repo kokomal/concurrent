@@ -11,6 +11,8 @@
 */target/*
 */test-classes/*
 
+target
+
 # Log file
 *.log
 

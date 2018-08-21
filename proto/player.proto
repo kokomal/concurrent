@@ -1,0 +1,27 @@
+// 3.6需要在头部声明支持的语法版本是2还是3
+// 这个proto文件是类的静态声明文件，规定了通讯pojo的基本字段，框架会基于此生成比较重量级的pojo
+syntax = "proto3";
+
+option java_package = "yuanjun.chen.serialize.protobuf.dto";
+option java_outer_classname = "PlayerModule";
+
+message PBPlayer{
+	// 3取消了required关键字
+	int64 playerId = 1;
+	
+	// required 
+	int32 age = 2;
+	
+	// required 
+	string name = 3;
+	
+	repeated int32 skills = 4; // 3保留了repeated
+}
+
+message PBResource{
+	// required 
+	int64 gold = 1;
+	
+	// required 
+	int32 energy = 2;
+}
