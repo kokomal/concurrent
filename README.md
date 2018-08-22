@@ -18,3 +18,4 @@ juc包外置可重入锁的应用
 ProtocolBuffer protobuf3是google出品的序列化框架，需要预先编辑proto文件，来指定通讯pojo的字段，并且可以用protobuf的exe执行脚本来实现（命令参数存在bat文件里面）
 当然也可以用mvn来实现pojo的生成    
 maven命令为mvn protobuf:compile  
+也可以在Windows下执行脚本（参见项目路径下proto_build.bat）值得注意的是protobuf3废除了通配符的命令  

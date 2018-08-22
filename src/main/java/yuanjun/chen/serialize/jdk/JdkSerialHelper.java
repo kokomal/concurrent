@@ -1,7 +1,7 @@
 /**
  * @Title: JdkSerialHelper.java
  * @Package: yuanjun.chen.serialize.jdk
- * @Description: TODO(用一句话描述该文件做什么)
+ * @Description: jdk自带ObjectOutputStream,性能比较低下
  * @author: 陈元俊
  * @date: 2018年8月21日 下午1:22:45
  * @version V1.0
@@ -21,7 +21,7 @@ import yuanjun.chen.serialize.pojo.PojoUtils;
 
 /**
  * @ClassName: JdkSerialHelper
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: jdk自带ObjectOutputStream,性能比较低下
  * @author: 陈元俊
  * @date: 2018年8月21日 下午1:22:45
  */

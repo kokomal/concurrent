@@ -1,5 +1,6 @@
 // 3.6需要在头部声明支持的语法版本是2还是3
 // 这个proto文件是类的静态声明文件，规定了通讯pojo的基本字段，框架会基于此生成比较重量级的pojo
+// 用于脚本方式的protomodule Java类的生成
 syntax = "proto3";
 
 option java_package = "yuanjun.chen.serialize.protobuf.dto";
