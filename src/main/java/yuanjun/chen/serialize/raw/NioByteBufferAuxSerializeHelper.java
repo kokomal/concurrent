@@ -28,8 +28,7 @@ public class NioByteBufferAuxSerializeHelper {
         for (Integer arg : args) {
             buffer.putInt(arg); // 采用ByteBuffer的putInt方法
         }
-        byte[] ashes = buffer.array();
-        return ashes;
+        return buffer.array();
     }
 
     public static List<Integer> bytes2Ints(byte[] ashes) throws Exception {
@@ -55,5 +54,4 @@ public class NioByteBufferAuxSerializeHelper {
         List<Integer> reviv = bytes2Ints(ashes);
         System.out.println("REVIVED List<Integer> = " + reviv);
     }
-
 }

@@ -29,7 +29,6 @@ import yuanjun.chen.serialize.pojo.PojoUtils;
  * @date: 2018年8月21日 上午11:01:31
  */
 public class KyroHelper {
-
     public static <T extends Serializable> byte[] toBytes(T obj) {
         Kryo kryo = new Kryo();
         kryo.setReferences(false);
@@ -76,5 +75,4 @@ public class KyroHelper {
         DemoPOJO reviv = parse(ashes, DemoPOJO.class);
         System.out.println(reviv);
     }
-
 }

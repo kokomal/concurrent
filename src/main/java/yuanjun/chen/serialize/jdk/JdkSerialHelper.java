@@ -11,7 +11,6 @@ package yuanjun.chen.serialize.jdk;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -43,15 +42,12 @@ public class JdkSerialHelper {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
         // 写入对象
         objectOutputStream.writeObject(obj);
-        // 获取 字节数组
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        return byteArray;
+        return byteArrayOutputStream.toByteArray();
     }
 
     @SuppressWarnings("unchecked")
     public static <T extends Serializable> T parse(byte[] ashes, Class<T> clazz) throws Exception {
         ObjectInputStream inputStream = new ObjectInputStream(new ByteArrayInputStream(ashes));
-        T res = (T) inputStream.readObject();
-        return res;
+        return (T) inputStream.readObject();
     }
 }

@@ -37,7 +37,7 @@ public class ProtoBufHelper {
     }
 
     public static byte[] toBytes(final DemoPOJO obj) {
-        DemoDtoModule.DemoDto.Builder demobuilder = DemoDtoModule.DemoDto.newBuilder();
+        DemoDto.Builder demobuilder = DemoDto.newBuilder();
         demobuilder.setDeliveryDateRaw(obj.getDeliveryDate().getTime()); // 日期转换成long
         demobuilder.setId(obj.getId());
         demobuilder.setMaterialCost(obj.getMaterialCost().doubleValue()); // 转换成double
@@ -52,7 +52,7 @@ public class ProtoBufHelper {
     }
 
     public static DemoPOJO parse(byte[] ashes) throws Exception {
-        DemoDtoModule.DemoDto dm = DemoDtoModule.DemoDto.parseFrom(ashes);
+        DemoDto dm = DemoDto.parseFrom(ashes);
         DemoPOJO res = new DemoPOJO();
         res.setDeliveryDate(new Date(dm.getDeliveryDateRaw()));
         res.setId(dm.getId());

@@ -25,21 +25,16 @@ import java.util.Random;
 public class RawSerializeHelper {
     private static final int magicFF = 0xff;
 
-    /**
-     * 简单对List<Integer>列表进行序列化操作
-     */
+    /** 简单对List<Integer>列表进行序列化操作. */
     public static byte[] ints2Bytes(List<Integer> targs) throws Exception {
         ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
         for (Integer targ : targs) {
             arrayOutputStream.write(singleint2bytes(targ));
         }
-        byte[] ashes = arrayOutputStream.toByteArray();
-        return ashes;
+        return arrayOutputStream.toByteArray();
     }
 
-    /**
-     * 简单对byte[]进行反序列化操作转换成List<Integer>
-     */
+    /** 简单对byte[]进行反序列化操作转换成List<Integer>. */
     public static List<Integer> bytes2Ints(byte[] ashes) throws Exception {
         List<Integer> ll = new ArrayList<>();
         ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(ashes);
@@ -67,17 +62,17 @@ public class RawSerializeHelper {
     }
 
     /**
-     * 大端字节序列(先写高位，再写低位) 每一个int都占用4个字节，相对来说比较浪费空间
+     * 大端字节序列(先写高位，再写低位) 每一个int都占用4个字节，相对来说比较浪费空间.
      * 
      * @param i
      * @return
      */
     public static byte[] singleint2bytes(int i) {
         byte[] bytes = new byte[4];
-        bytes[0] = (byte) (i >> 24 & magicFF);
-        bytes[1] = (byte) (i >> 16 & magicFF);
-        bytes[2] = (byte) (i >> 8 & magicFF);
-        bytes[3] = (byte) (i >> 0 & magicFF);
+        bytes[0] = (byte) ((i >> 24) & magicFF);
+        bytes[1] = (byte) ((i >> 16) & magicFF);
+        bytes[2] = (byte) ((i >> 8) & magicFF);
+        bytes[3] = (byte) ((i >> 0) & magicFF);
         return bytes;
     }
 
