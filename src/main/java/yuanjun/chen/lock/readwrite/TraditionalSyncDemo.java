@@ -21,9 +21,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class TraditionalSyncDemo {
 
     /**
+     * @throws Exception
      * @Title: testSerialSyncRead
      * @Description: 串行用sync方式读取 ，排他
-     * @throws Exception
      */
     public static void testSerialSyncRead(Pie pie, int len) throws Exception {
         Thread[] ts = new Thread[len];
@@ -57,9 +57,9 @@ public class TraditionalSyncDemo {
     }
 
     /**
+     * @throws Exception
      * @Title: testReadWriteLock
      * @Description: 用读写锁进行并行读 读写互斥，读读共享
-     * @throws Exception
      * @return: void
      */
     public static void testReadWriteLock(Pie pie, int len) throws Exception {

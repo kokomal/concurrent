@@ -10,9 +10,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class CachedData {
     public static boolean STOP = false;
+    final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
     Integer data = 0;
     volatile boolean cacheValid;
-    final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
 
     public void setCacheValid(boolean isValid) {
         rwl.writeLock().lock();

@@ -13,12 +13,44 @@ import java.util.concurrent.Executors;
 
 /**
  * @ClassName: OioServer
- * @Description: 传统IO的服务端,为每一个新连入的客户端开辟一个线程
+ * @Description: 传统IO的服务端, 为每一个新连入的客户端开辟一个线程
  * @author: 陈元俊
  * @date: 2018年8月14日 下午1:37:08
  */
 public class OioServer {
     private volatile boolean stop = false;
+
+    /**
+     * 读取数据.
+     *
+     * @param socket
+     * @throws Exception
+     */
+    public static void handle(Socket socket) throws Exception {
+        String line;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter writer = new PrintWriter(socket.getOutputStream());
+        System.out.println("Accept Client: " + reader.readLine()); // 握手
+        int limit = 99;
+        while (true) {
+            Thread.sleep(10);
+            limit--;
+            if (limit == 0) {
+                line = "stop";
+                writer.println(line); // 向client写
+                writer.flush();
+                break;
+            }
+            line = "Today the magic key is-" + UUID.randomUUID().toString();
+            writer.println(line); // 向client写
+            writer.flush();
+            System.out.println("From Client: " + reader.readLine()); // 写完后从client读
+        }
+        writer.close(); // 关闭Socket输出流
+        reader.close(); // 关闭Socket输入流
+        socket.close(); // 关闭Socket
+        System.out.println("server handler finished");
+    }
 
     public void setStop(boolean stop) {
         this.stop = stop;
@@ -53,46 +85,14 @@ public class OioServer {
     }
 
     @SuppressWarnings("resource")
-    public void stopThread(int port){  
-        this.stop = true;  
-        try {  
-            new Socket("localhost",port);  
-        } catch (UnknownHostException e) {  
-            e.printStackTrace();  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        }  
-    }  
-    
-    /**
-     * 读取数据.
-     * 
-     * @param socket
-     * @throws Exception
-     */
-    public static void handle(Socket socket) throws Exception {
-        String line;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        PrintWriter writer = new PrintWriter(socket.getOutputStream());
-        System.out.println("Accept Client: " + reader.readLine()); // 握手
-        int limit = 99;
-        while (true) {
-            Thread.sleep(10);
-            limit--;
-            if (limit == 0) {
-                line = "stop";
-                writer.println(line); // 向client写
-                writer.flush();
-                break;
-            }
-            line = "Today the magic key is-" + UUID.randomUUID().toString();
-            writer.println(line); // 向client写
-            writer.flush();
-            System.out.println("From Client: " + reader.readLine()); // 写完后从client读
+    public void stopThread(int port) {
+        this.stop = true;
+        try {
+            new Socket("localhost", port);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        writer.close(); // 关闭Socket输出流
-        reader.close(); // 关闭Socket输入流
-        socket.close(); // 关闭Socket
-        System.out.println("server handler finished");
     }
 }

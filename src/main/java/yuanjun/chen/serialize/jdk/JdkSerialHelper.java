@@ -1,7 +1,7 @@
 /**
  * @Title: JdkSerialHelper.java
  * @Package: yuanjun.chen.serialize.jdk
- * @Description: jdk自带ObjectOutputStream,性能比较低下
+ * @Description: jdk自带ObjectOutputStream, 性能比较低下
  * @author: 陈元俊
  * @date: 2018年8月21日 下午1:22:45
  * @version V1.0
@@ -9,18 +9,15 @@
  */
 package yuanjun.chen.serialize.jdk;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.Arrays;
 import yuanjun.chen.serialize.pojo.DemoPOJO;
 import yuanjun.chen.serialize.pojo.PojoUtils;
 
+import java.io.*;
+import java.util.Arrays;
+
 /**
  * @ClassName: JdkSerialHelper
- * @Description: jdk自带ObjectOutputStream,性能比较低下
+ * @Description: jdk自带ObjectOutputStream, 性能比较低下
  * @author: 陈元俊
  * @date: 2018年8月21日 下午1:22:45
  */

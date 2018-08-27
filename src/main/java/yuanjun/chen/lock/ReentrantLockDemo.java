@@ -9,11 +9,12 @@
  */
 package yuanjun.chen.lock;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * @ClassName: ReentrantLockDemo
@@ -24,25 +25,34 @@ import org.apache.logging.log4j.Logger;
 public class ReentrantLockDemo {
     private static final Logger logger = LogManager.getLogger(ReentrantLockDemo.class);
 
+    public static void main(String[] args) throws Exception {
+    }
+
     public enum LockWay {
         INSTANT, TRYLOCK, TRYLOCKNOWAIT, LOCKINTERRUPT;
     }
 
-    /** TreasureBox总共含有jewelleries个资源， 每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口， 需要根据返回值进行不同的实现. */
+    /**
+     * TreasureBox总共含有jewelleries个资源， 每次ransack窃取10个资源 注意Callable和Runnable是两个不同的接口， 需要根据返回值进行不同的实现.
+     */
     public static class TreasureBox implements Callable<Long>, Runnable {
-        /** 线程共享显式锁. */
+        /**
+         * 线程共享显式锁.
+         */
         private final ReentrantLock key = new ReentrantLock();
-        /** 珠宝. */
+        /**
+         * 珠宝.
+         */
         private Long jewelleries;
         private LockWay lockway;
-
-        public Long getJewelleries() {
-            return jewelleries;
-        }
 
         public TreasureBox(Long jewelleries, LockWay lockway) {
             this.jewelleries = jewelleries;
             this.lockway = lockway;
+        }
+
+        public Long getJewelleries() {
+            return jewelleries;
         }
 
         public Long ransack_trylock() {
@@ -109,8 +119,8 @@ public class ReentrantLockDemo {
 
         public Long call() throws Exception {
             switch (this.lockway) {
-                case INSTANT: default:
-                    {
+                case INSTANT:
+                default: {
                     return ransack_lock();
                 }
                 case TRYLOCK:
@@ -125,8 +135,8 @@ public class ReentrantLockDemo {
 
         public void run() {
             switch (this.lockway) {
-                case INSTANT: default:
-                    {
+                case INSTANT:
+                default: {
                     ransack_lock();
                     break;
                 }
@@ -142,6 +152,4 @@ public class ReentrantLockDemo {
             }
         }
     }
-
-    public static void main(String[] args) throws Exception {}
 }

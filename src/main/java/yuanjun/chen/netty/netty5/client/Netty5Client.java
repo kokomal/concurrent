@@ -1,6 +1,5 @@
 package yuanjun.chen.netty.netty5.client;
 
-import java.util.UUID;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -11,11 +10,12 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
+import java.util.UUID;
+
 /**
  * netty5的客户端
- * 
- * @SpecialThanksTo -琴兽-
  *
+ * @SpecialThanksTo -琴兽-
  */
 public class Netty5Client {
 

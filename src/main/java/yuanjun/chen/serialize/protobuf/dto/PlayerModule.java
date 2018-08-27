@@ -4,1534 +4,1623 @@
 package yuanjun.chen.serialize.protobuf.dto;
 
 public final class PlayerModule {
-  private PlayerModule() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_PBPlayer_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_PBPlayer_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_PBResource_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_PBResource_fieldAccessorTable;
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface PBPlayerOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PBPlayer)
-      com.google.protobuf.MessageOrBuilder {
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\014player.proto\"G\n\010PBPlayer\022\020\n\010playerId\030\001" +
+                        " \001(\003\022\013\n\003age\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\016\n\006skill" +
+                        "s\030\004 \003(\005\"*\n\nPBResource\022\014\n\004gold\030\001 \001(\003\022\016\n\006e" +
+                        "nergy\030\002 \001(\005B3\n#yuanjun.chen.serialize.pr" +
+                        "otobuf.dtoB\014PlayerModuleb\006proto3"
+        };
+        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                            com.google.protobuf.Descriptors.FileDescriptor root) {
+                        descriptor = root;
+                        return null;
+                    }
+                };
+        com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        }, assigner);
+        internal_static_PBPlayer_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_PBPlayer_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_PBPlayer_descriptor,
+                new java.lang.String[]{"PlayerId", "Age", "Name", "Skills",});
+        internal_static_PBResource_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_PBResource_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_PBResource_descriptor,
+                new java.lang.String[]{"Gold", "Energy",});
+    }
 
-    /**
-     * <pre>
-     * 3取消了required关键字
-     * </pre>
-     *
-     * <code>optional int64 playerId = 1;</code>
-     */
-    long getPlayerId();
+    private PlayerModule() {
+    }
 
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int32 age = 2;</code>
-     */
-    int getAge();
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
 
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional string name = 3;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional string name = 3;</code>
-     */
-    com.google.protobuf.ByteString
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+    public interface PBPlayerOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:PBPlayer)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <pre>
+         * 3取消了required关键字
+         * </pre>
+         *
+         * <code>optional int64 playerId = 1;</code>
+         */
+        long getPlayerId();
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int32 age = 2;</code>
+         */
+        int getAge();
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional string name = 3;</code>
+         */
+        java.lang.String getName();
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional string name = 3;</code>
+         */
+        com.google.protobuf.ByteString
         getNameBytes();
 
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    java.util.List<java.lang.Integer> getSkillsList();
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    int getSkillsCount();
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    int getSkills(int index);
-  }
-  /**
-   * Protobuf type {@code PBPlayer}
-   */
-  public  static final class PBPlayer extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:PBPlayer)
-      PBPlayerOrBuilder {
-    // Use PBPlayer.newBuilder() to construct.
-    private PBPlayer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private PBPlayer() {
-      playerId_ = 0L;
-      age_ = 0;
-      name_ = "";
-      skills_ = java.util.Collections.emptyList();
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        java.util.List<java.lang.Integer> getSkillsList();
+
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        int getSkillsCount();
+
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        int getSkills(int index);
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private PBPlayer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
+    public interface PBResourceOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:PBResource)
+            com.google.protobuf.MessageOrBuilder {
 
-              playerId_ = input.readInt64();
-              break;
-            }
-            case 16: {
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int64 gold = 1;</code>
+         */
+        long getGold();
 
-              age_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                skills_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              skills_.add(input.readInt32());
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                skills_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                skills_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          skills_ = java.util.Collections.unmodifiableList(skills_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int32 energy = 2;</code>
+         */
+        int getEnergy();
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int PLAYERID_FIELD_NUMBER = 1;
-    private long playerId_;
-    /**
-     * <pre>
-     * 3取消了required关键字
-     * </pre>
-     *
-     * <code>optional int64 playerId = 1;</code>
-     */
-    public long getPlayerId() {
-      return playerId_;
-    }
-
-    public static final int AGE_FIELD_NUMBER = 2;
-    private int age_;
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int32 age = 2;</code>
-     */
-    public int getAge() {
-      return age_;
-    }
-
-    public static final int NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object name_;
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional string name = 3;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional string name = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SKILLS_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> skills_;
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    public java.util.List<java.lang.Integer>
-        getSkillsList() {
-      return skills_;
-    }
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    public int getSkillsCount() {
-      return skills_.size();
-    }
-    /**
-     * <pre>
-     * 3保留了repeated
-     * </pre>
-     *
-     * <code>repeated int32 skills = 4;</code>
-     */
-    public int getSkills(int index) {
-      return skills_.get(index);
-    }
-    private int skillsMemoizedSerializedSize = -1;
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (playerId_ != 0L) {
-        output.writeInt64(1, playerId_);
-      }
-      if (age_ != 0) {
-        output.writeInt32(2, age_);
-      }
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
-      }
-      if (getSkillsList().size() > 0) {
-        output.writeUInt32NoTag(34);
-        output.writeUInt32NoTag(skillsMemoizedSerializedSize);
-      }
-      for (int i = 0; i < skills_.size(); i++) {
-        output.writeInt32NoTag(skills_.get(i));
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (playerId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, playerId_);
-      }
-      if (age_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, age_);
-      }
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < skills_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(skills_.get(i));
-        }
-        size += dataSize;
-        if (!getSkillsList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        skillsMemoizedSerializedSize = dataSize;
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer)) {
-        return super.equals(obj);
-      }
-      yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer other = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) obj;
-
-      boolean result = true;
-      result = result && (getPlayerId()
-          == other.getPlayerId());
-      result = result && (getAge()
-          == other.getAge());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && getSkillsList()
-          .equals(other.getSkillsList());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlayerId());
-      hash = (37 * hash) + AGE_FIELD_NUMBER;
-      hash = (53 * hash) + getAge();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      if (getSkillsCount() > 0) {
-        hash = (37 * hash) + SKILLS_FIELD_NUMBER;
-        hash = (53 * hash) + getSkillsList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code PBPlayer}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PBPlayer)
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayerOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.Builder.class);
-      }
-
-      // Construct using yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        playerId_ = 0L;
-
-        age_ = 0;
-
-        name_ = "";
-
-        skills_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.getDefaultInstance();
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer build() {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer buildPartial() {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.playerId_ = playerId_;
-        result.age_ = age_;
-        result.name_ = name_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          skills_ = java.util.Collections.unmodifiableList(skills_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.skills_ = skills_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) {
-          return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer other) {
-        if (other == yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.getDefaultInstance()) return this;
-        if (other.getPlayerId() != 0L) {
-          setPlayerId(other.getPlayerId());
-        }
-        if (other.getAge() != 0) {
-          setAge(other.getAge());
-        }
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        if (!other.skills_.isEmpty()) {
-          if (skills_.isEmpty()) {
-            skills_ = other.skills_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureSkillsIsMutable();
-            skills_.addAll(other.skills_);
-          }
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private long playerId_ ;
-      /**
-       * <pre>
-       * 3取消了required关键字
-       * </pre>
-       *
-       * <code>optional int64 playerId = 1;</code>
-       */
-      public long getPlayerId() {
-        return playerId_;
-      }
-      /**
-       * <pre>
-       * 3取消了required关键字
-       * </pre>
-       *
-       * <code>optional int64 playerId = 1;</code>
-       */
-      public Builder setPlayerId(long value) {
-        
-        playerId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 3取消了required关键字
-       * </pre>
-       *
-       * <code>optional int64 playerId = 1;</code>
-       */
-      public Builder clearPlayerId() {
-        
-        playerId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private int age_ ;
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 age = 2;</code>
-       */
-      public int getAge() {
-        return age_;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 age = 2;</code>
-       */
-      public Builder setAge(int value) {
-        
-        age_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 age = 2;</code>
-       */
-      public Builder clearAge() {
-        
-        age_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional string name = 3;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional string name = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional string name = 3;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional string name = 3;</code>
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional string name = 3;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<java.lang.Integer> skills_ = java.util.Collections.emptyList();
-      private void ensureSkillsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          skills_ = new java.util.ArrayList<java.lang.Integer>(skills_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public java.util.List<java.lang.Integer>
-          getSkillsList() {
-        return java.util.Collections.unmodifiableList(skills_);
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public int getSkillsCount() {
-        return skills_.size();
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public int getSkills(int index) {
-        return skills_.get(index);
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public Builder setSkills(
-          int index, int value) {
-        ensureSkillsIsMutable();
-        skills_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public Builder addSkills(int value) {
-        ensureSkillsIsMutable();
-        skills_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public Builder addAllSkills(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureSkillsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, skills_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 3保留了repeated
-       * </pre>
-       *
-       * <code>repeated int32 skills = 4;</code>
-       */
-      public Builder clearSkills() {
-        skills_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:PBPlayer)
-    }
-
-    // @@protoc_insertion_point(class_scope:PBPlayer)
-    private static final yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer();
-    }
-
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<PBPlayer>
-        PARSER = new com.google.protobuf.AbstractParser<PBPlayer>() {
-      public PBPlayer parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PBPlayer(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<PBPlayer> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PBPlayer> getParserForType() {
-      return PARSER;
-    }
-
-    public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface PBResourceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:PBResource)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int64 gold = 1;</code>
-     */
-    long getGold();
-
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int32 energy = 2;</code>
-     */
-    int getEnergy();
-  }
-  /**
-   * Protobuf type {@code PBResource}
-   */
-  public  static final class PBResource extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:PBResource)
-      PBResourceOrBuilder {
-    // Use PBResource.newBuilder() to construct.
-    private PBResource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private PBResource() {
-      gold_ = 0L;
-      energy_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private PBResource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
+    public static final class PBPlayer extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:PBPlayer)
+            PBPlayerOrBuilder {
+        public static final int PLAYERID_FIELD_NUMBER = 1;
+        public static final int AGE_FIELD_NUMBER = 2;
+        public static final int NAME_FIELD_NUMBER = 3;
+        public static final int SKILLS_FIELD_NUMBER = 4;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:PBPlayer)
+        private static final yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<PBPlayer>
+                PARSER = new com.google.protobuf.AbstractParser<PBPlayer>() {
+            public PBPlayer parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new PBPlayer(input, extensionRegistry);
             }
-            case 8: {
+        };
 
-              gold_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              energy_ = input.readInt32();
-              break;
-            }
-          }
+        static {
+            DEFAULT_INSTANCE = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer();
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+        private int bitField0_;
+        private long playerId_;
+        private int age_;
+        private volatile java.lang.Object name_;
+        private java.util.List<java.lang.Integer> skills_;
+        private int skillsMemoizedSerializedSize = -1;
+        private byte memoizedIsInitialized = -1;
+
+        // Use PBPlayer.newBuilder() to construct.
+        private PBPlayer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private PBPlayer() {
+            playerId_ = 0L;
+            age_ = 0;
+            name_ = "";
+            skills_ = java.util.Collections.emptyList();
+        }
+
+        private PBPlayer(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!input.skipField(tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 8: {
+
+                            playerId_ = input.readInt64();
+                            break;
+                        }
+                        case 16: {
+
+                            age_ = input.readInt32();
+                            break;
+                        }
+                        case 26: {
+                            java.lang.String s = input.readStringRequireUtf8();
+
+                            name_ = s;
+                            break;
+                        }
+                        case 32: {
+                            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                                skills_ = new java.util.ArrayList<java.lang.Integer>();
+                                mutable_bitField0_ |= 0x00000008;
+                            }
+                            skills_.add(input.readInt32());
+                            break;
+                        }
+                        case 34: {
+                            int length = input.readRawVarint32();
+                            int limit = input.pushLimit(length);
+                            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+                                skills_ = new java.util.ArrayList<java.lang.Integer>();
+                                mutable_bitField0_ |= 0x00000008;
+                            }
+                            while (input.getBytesUntilLimit() > 0) {
+                                skills_.add(input.readInt32());
+                            }
+                            input.popLimit(limit);
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                    skills_ = java.util.Collections.unmodifiableList(skills_);
+                }
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
-    }
+            return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
+        }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<PBPlayer> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.Builder.class);
+            return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.Builder.class);
+        }
+
+        /**
+         * <pre>
+         * 3取消了required关键字
+         * </pre>
+         *
+         * <code>optional int64 playerId = 1;</code>
+         */
+        public long getPlayerId() {
+            return playerId_;
+        }
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int32 age = 2;</code>
+         */
+        public int getAge() {
+            return age_;
+        }
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional string name = 3;</code>
+         */
+        public java.lang.String getName() {
+            java.lang.Object ref = name_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                name_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional string name = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getNameBytes() {
+            java.lang.Object ref = name_;
+            if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                name_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        public java.util.List<java.lang.Integer>
+        getSkillsList() {
+            return skills_;
+        }
+
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        public int getSkillsCount() {
+            return skills_.size();
+        }
+
+        /**
+         * <pre>
+         * 3保留了repeated
+         * </pre>
+         *
+         * <code>repeated int32 skills = 4;</code>
+         */
+        public int getSkills(int index) {
+            return skills_.get(index);
+        }
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            getSerializedSize();
+            if (playerId_ != 0L) {
+                output.writeInt64(1, playerId_);
+            }
+            if (age_ != 0) {
+                output.writeInt32(2, age_);
+            }
+            if (!getNameBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+            }
+            if (getSkillsList().size() > 0) {
+                output.writeUInt32NoTag(34);
+                output.writeUInt32NoTag(skillsMemoizedSerializedSize);
+            }
+            for (int i = 0; i < skills_.size(); i++) {
+                output.writeInt32NoTag(skills_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (playerId_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(1, playerId_);
+            }
+            if (age_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, age_);
+            }
+            if (!getNameBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
+            }
+            {
+                int dataSize = 0;
+                for (int i = 0; i < skills_.size(); i++) {
+                    dataSize += com.google.protobuf.CodedOutputStream
+                            .computeInt32SizeNoTag(skills_.get(i));
+                }
+                size += dataSize;
+                if (!getSkillsList().isEmpty()) {
+                    size += 1;
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeInt32SizeNoTag(dataSize);
+                }
+                skillsMemoizedSerializedSize = dataSize;
+            }
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer)) {
+                return super.equals(obj);
+            }
+            yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer other = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) obj;
+
+            boolean result = true;
+            result = result && (getPlayerId()
+                    == other.getPlayerId());
+            result = result && (getAge()
+                    == other.getAge());
+            result = result && getName()
+                    .equals(other.getName());
+            result = result && getSkillsList()
+                    .equals(other.getSkillsList());
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptorForType().hashCode();
+            hash = (37 * hash) + PLAYERID_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    getPlayerId());
+            hash = (37 * hash) + AGE_FIELD_NUMBER;
+            hash = (53 * hash) + getAge();
+            hash = (37 * hash) + NAME_FIELD_NUMBER;
+            hash = (53 * hash) + getName().hashCode();
+            if (getSkillsCount() > 0) {
+                hash = (37 * hash) + SKILLS_FIELD_NUMBER;
+                hash = (53 * hash) + getSkillsList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<PBPlayer> getParserForType() {
+            return PARSER;
+        }
+
+        public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code PBPlayer}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:PBPlayer)
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayerOrBuilder {
+            private int bitField0_;
+            private long playerId_;
+            private int age_;
+            private java.lang.Object name_ = "";
+            private java.util.List<java.lang.Integer> skills_ = java.util.Collections.emptyList();
+
+            // Construct using yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                playerId_ = 0L;
+
+                age_ = 0;
+
+                name_ = "";
+
+                skills_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000008);
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBPlayer_descriptor;
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer getDefaultInstanceForType() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.getDefaultInstance();
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer build() {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer buildPartial() {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                result.playerId_ = playerId_;
+                result.age_ = age_;
+                result.name_ = name_;
+                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                    skills_ = java.util.Collections.unmodifiableList(skills_);
+                    bitField0_ = (bitField0_ & ~0x00000008);
+                }
+                result.skills_ = skills_;
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) {
+                    return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer other) {
+                if (other == yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer.getDefaultInstance())
+                    return this;
+                if (other.getPlayerId() != 0L) {
+                    setPlayerId(other.getPlayerId());
+                }
+                if (other.getAge() != 0) {
+                    setAge(other.getAge());
+                }
+                if (!other.getName().isEmpty()) {
+                    name_ = other.name_;
+                    onChanged();
+                }
+                if (!other.skills_.isEmpty()) {
+                    if (skills_.isEmpty()) {
+                        skills_ = other.skills_;
+                        bitField0_ = (bitField0_ & ~0x00000008);
+                    } else {
+                        ensureSkillsIsMutable();
+                        skills_.addAll(other.skills_);
+                    }
+                    onChanged();
+                }
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBPlayer) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 3取消了required关键字
+             * </pre>
+             *
+             * <code>optional int64 playerId = 1;</code>
+             */
+            public long getPlayerId() {
+                return playerId_;
+            }
+
+            /**
+             * <pre>
+             * 3取消了required关键字
+             * </pre>
+             *
+             * <code>optional int64 playerId = 1;</code>
+             */
+            public Builder setPlayerId(long value) {
+
+                playerId_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 3取消了required关键字
+             * </pre>
+             *
+             * <code>optional int64 playerId = 1;</code>
+             */
+            public Builder clearPlayerId() {
+
+                playerId_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 age = 2;</code>
+             */
+            public int getAge() {
+                return age_;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 age = 2;</code>
+             */
+            public Builder setAge(int value) {
+
+                age_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 age = 2;</code>
+             */
+            public Builder clearAge() {
+
+                age_ = 0;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional string name = 3;</code>
+             */
+            public java.lang.String getName() {
+                java.lang.Object ref = name_;
+                if (!(ref instanceof java.lang.String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    java.lang.String s = bs.toStringUtf8();
+                    name_ = s;
+                    return s;
+                } else {
+                    return (java.lang.String) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional string name = 3;</code>
+             */
+            public Builder setName(
+                    java.lang.String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                name_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional string name = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getNameBytes() {
+                java.lang.Object ref = name_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (java.lang.String) ref);
+                    name_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional string name = 3;</code>
+             */
+            public Builder setNameBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                name_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional string name = 3;</code>
+             */
+            public Builder clearName() {
+
+                name_ = getDefaultInstance().getName();
+                onChanged();
+                return this;
+            }
+
+            private void ensureSkillsIsMutable() {
+                if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+                    skills_ = new java.util.ArrayList<java.lang.Integer>(skills_);
+                    bitField0_ |= 0x00000008;
+                }
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public java.util.List<java.lang.Integer>
+            getSkillsList() {
+                return java.util.Collections.unmodifiableList(skills_);
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public int getSkillsCount() {
+                return skills_.size();
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public int getSkills(int index) {
+                return skills_.get(index);
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public Builder setSkills(
+                    int index, int value) {
+                ensureSkillsIsMutable();
+                skills_.set(index, value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public Builder addSkills(int value) {
+                ensureSkillsIsMutable();
+                skills_.add(value);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public Builder addAllSkills(
+                    java.lang.Iterable<? extends java.lang.Integer> values) {
+                ensureSkillsIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                        values, skills_);
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 3保留了repeated
+             * </pre>
+             *
+             * <code>repeated int32 skills = 4;</code>
+             */
+            public Builder clearSkills() {
+                skills_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000008);
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:PBPlayer)
+        }
+
     }
 
-    public static final int GOLD_FIELD_NUMBER = 1;
-    private long gold_;
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int64 gold = 1;</code>
-     */
-    public long getGold() {
-      return gold_;
-    }
-
-    public static final int ENERGY_FIELD_NUMBER = 2;
-    private int energy_;
-    /**
-     * <pre>
-     * required 
-     * </pre>
-     *
-     * <code>optional int32 energy = 2;</code>
-     */
-    public int getEnergy() {
-      return energy_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (gold_ != 0L) {
-        output.writeInt64(1, gold_);
-      }
-      if (energy_ != 0) {
-        output.writeInt32(2, energy_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (gold_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, gold_);
-      }
-      if (energy_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, energy_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource)) {
-        return super.equals(obj);
-      }
-      yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource other = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) obj;
-
-      boolean result = true;
-      result = result && (getGold()
-          == other.getGold());
-      result = result && (getEnergy()
-          == other.getEnergy());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + GOLD_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getGold());
-      hash = (37 * hash) + ENERGY_FIELD_NUMBER;
-      hash = (53 * hash) + getEnergy();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code PBResource}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:PBResource)
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResourceOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.Builder.class);
-      }
-
-      // Construct using yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        gold_ = 0L;
-
-        energy_ = 0;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
-        return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.getDefaultInstance();
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource build() {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource buildPartial() {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource(this);
-        result.gold_ = gold_;
-        result.energy_ = energy_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) {
-          return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource other) {
-        if (other == yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.getDefaultInstance()) return this;
-        if (other.getGold() != 0L) {
-          setGold(other.getGold());
-        }
-        if (other.getEnergy() != 0) {
-          setEnergy(other.getEnergy());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long gold_ ;
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int64 gold = 1;</code>
-       */
-      public long getGold() {
-        return gold_;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int64 gold = 1;</code>
-       */
-      public Builder setGold(long value) {
-        
-        gold_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int64 gold = 1;</code>
-       */
-      public Builder clearGold() {
-        
-        gold_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private int energy_ ;
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 energy = 2;</code>
-       */
-      public int getEnergy() {
-        return energy_;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 energy = 2;</code>
-       */
-      public Builder setEnergy(int value) {
-        
-        energy_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * required 
-       * </pre>
-       *
-       * <code>optional int32 energy = 2;</code>
-       */
-      public Builder clearEnergy() {
-        
-        energy_ = 0;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:PBResource)
-    }
-
-    // @@protoc_insertion_point(class_scope:PBResource)
-    private static final yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource();
-    }
-
-    public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<PBResource>
-        PARSER = new com.google.protobuf.AbstractParser<PBResource>() {
-      public PBResource parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PBResource(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<PBResource> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PBResource> getParserForType() {
-      return PARSER;
-    }
-
-    public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PBPlayer_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PBPlayer_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PBResource_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PBResource_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\014player.proto\"G\n\010PBPlayer\022\020\n\010playerId\030\001" +
-      " \001(\003\022\013\n\003age\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\022\016\n\006skill" +
-      "s\030\004 \003(\005\"*\n\nPBResource\022\014\n\004gold\030\001 \001(\003\022\016\n\006e" +
-      "nergy\030\002 \001(\005B3\n#yuanjun.chen.serialize.pr" +
-      "otobuf.dtoB\014PlayerModuleb\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
+    public static final class PBResource extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:PBResource)
+            PBResourceOrBuilder {
+        public static final int GOLD_FIELD_NUMBER = 1;
+        public static final int ENERGY_FIELD_NUMBER = 2;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:PBResource)
+        private static final yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<PBResource>
+                PARSER = new com.google.protobuf.AbstractParser<PBResource>() {
+            public PBResource parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new PBResource(input, extensionRegistry);
+            }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_PBPlayer_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_PBPlayer_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PBPlayer_descriptor,
-        new java.lang.String[] { "PlayerId", "Age", "Name", "Skills", });
-    internal_static_PBResource_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_PBResource_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PBResource_descriptor,
-        new java.lang.String[] { "Gold", "Energy", });
-  }
 
-  // @@protoc_insertion_point(outer_class_scope)
+        static {
+            DEFAULT_INSTANCE = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource();
+        }
+
+        private long gold_;
+        private int energy_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use PBResource.newBuilder() to construct.
+        private PBResource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+        private PBResource() {
+            gold_ = 0L;
+            energy_ = 0;
+        }
+
+        private PBResource(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!input.skipField(tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 8: {
+
+                            gold_ = input.readInt64();
+                            break;
+                        }
+                        case 16: {
+
+                            energy_ = input.readInt32();
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<PBResource> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.Builder.class);
+        }
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int64 gold = 1;</code>
+         */
+        public long getGold() {
+            return gold_;
+        }
+
+        /**
+         * <pre>
+         * required
+         * </pre>
+         *
+         * <code>optional int32 energy = 2;</code>
+         */
+        public int getEnergy() {
+            return energy_;
+        }
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (gold_ != 0L) {
+                output.writeInt64(1, gold_);
+            }
+            if (energy_ != 0) {
+                output.writeInt32(2, energy_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (gold_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(1, gold_);
+            }
+            if (energy_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt32Size(2, energy_);
+            }
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource)) {
+                return super.equals(obj);
+            }
+            yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource other = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) obj;
+
+            boolean result = true;
+            result = result && (getGold()
+                    == other.getGold());
+            result = result && (getEnergy()
+                    == other.getEnergy());
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptorForType().hashCode();
+            hash = (37 * hash) + GOLD_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    getGold());
+            hash = (37 * hash) + ENERGY_FIELD_NUMBER;
+            hash = (53 * hash) + getEnergy();
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<PBResource> getParserForType() {
+            return PARSER;
+        }
+
+        public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code PBResource}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:PBResource)
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResourceOrBuilder {
+            private long gold_;
+            private int energy_;
+
+            // Construct using yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.class, yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                gold_ = 0L;
+
+                energy_ = 0;
+
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.internal_static_PBResource_descriptor;
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource getDefaultInstanceForType() {
+                return yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.getDefaultInstance();
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource build() {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource buildPartial() {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource result = new yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource(this);
+                result.gold_ = gold_;
+                result.energy_ = energy_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) {
+                    return mergeFrom((yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource other) {
+                if (other == yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource.getDefaultInstance())
+                    return this;
+                if (other.getGold() != 0L) {
+                    setGold(other.getGold());
+                }
+                if (other.getEnergy() != 0) {
+                    setEnergy(other.getEnergy());
+                }
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (yuanjun.chen.serialize.protobuf.dto.PlayerModule.PBResource) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int64 gold = 1;</code>
+             */
+            public long getGold() {
+                return gold_;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int64 gold = 1;</code>
+             */
+            public Builder setGold(long value) {
+
+                gold_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int64 gold = 1;</code>
+             */
+            public Builder clearGold() {
+
+                gold_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 energy = 2;</code>
+             */
+            public int getEnergy() {
+                return energy_;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 energy = 2;</code>
+             */
+            public Builder setEnergy(int value) {
+
+                energy_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * required
+             * </pre>
+             *
+             * <code>optional int32 energy = 2;</code>
+             */
+            public Builder clearEnergy() {
+
+                energy_ = 0;
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:PBResource)
+        }
+
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

@@ -1,21 +1,18 @@
 package yuanjun.chen.netty.parody.boss;
 
-import java.io.IOException;
-import java.nio.channels.ClosedChannelException;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.concurrent.Executor;
 import yuanjun.chen.netty.parody.AbstractNioSelector;
 import yuanjun.chen.netty.parody.NioSelectorRunnablePool;
 import yuanjun.chen.netty.parody.worker.Worker;
 
+import java.io.IOException;
+import java.nio.channels.*;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.Executor;
+
 /**
  * Boss实现类.
- * 
+ *
  * @SpecialThanksTo -琴兽-
  */
 public class NioServerBoss extends AbstractNioSelector implements Boss {
@@ -29,7 +26,7 @@ public class NioServerBoss extends AbstractNioSelector implements Boss {
         if (selectedKeys.isEmpty()) {
             return;
         }
-        for (Iterator<SelectionKey> i = selectedKeys.iterator(); i.hasNext();) {
+        for (Iterator<SelectionKey> i = selectedKeys.iterator(); i.hasNext(); ) {
             SelectionKey key = i.next();
             i.remove();
             ServerSocketChannel server = (ServerSocketChannel) key.channel(); // 为何这里直接知道是ACCEPT的key？

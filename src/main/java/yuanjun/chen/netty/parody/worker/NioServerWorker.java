@@ -1,5 +1,8 @@
 package yuanjun.chen.netty.parody.worker;
 
+import yuanjun.chen.netty.parody.AbstractNioSelector;
+import yuanjun.chen.netty.parody.NioSelectorRunnablePool;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedChannelException;
@@ -9,12 +12,10 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.Executor;
-import yuanjun.chen.netty.parody.AbstractNioSelector;
-import yuanjun.chen.netty.parody.NioSelectorRunnablePool;
 
 /**
  * Worker实现类.
- * 
+ *
  * @SpecialThanksTo -琴兽-
  */
 public class NioServerWorker extends AbstractNioSelector implements Worker {
@@ -64,7 +65,9 @@ public class NioServerWorker extends AbstractNioSelector implements Worker {
         }
     }
 
-    /** 加入一个新的socket客户端. */
+    /**
+     * 加入一个新的socket客户端.
+     */
     @Override
     public void registerNewChannelTask(final SocketChannel channel) {
         final Selector selector = this.selector;

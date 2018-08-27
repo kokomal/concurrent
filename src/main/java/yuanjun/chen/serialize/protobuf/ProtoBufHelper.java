@@ -9,13 +9,13 @@
  */
 package yuanjun.chen.serialize.protobuf;
 
+import yuanjun.chen.serialize.pojo.DemoPOJO;
+import yuanjun.chen.serialize.pojo.PojoUtils;
+import yuanjun.chen.serialize.protobuf.dto.DemoDtoModule.DemoDto;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Date;
-import yuanjun.chen.serialize.pojo.DemoPOJO;
-import yuanjun.chen.serialize.pojo.PojoUtils;
-import yuanjun.chen.serialize.protobuf.dto.DemoDtoModule;
-import yuanjun.chen.serialize.protobuf.dto.DemoDtoModule.DemoDto;
 
 /**
  * @ClassName: ProtoBufHelper

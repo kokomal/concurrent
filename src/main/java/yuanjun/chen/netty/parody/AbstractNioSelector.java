@@ -9,27 +9,34 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * 抽象selector线程类.
- * 
+ *
  * @SpecialThanksTo -琴兽-
  */
 public abstract class AbstractNioSelector implements Runnable {
-    /** 线程池. */
-    private final Executor executor;
-
-    /** 选择器. */
-    protected Selector selector;
-
-    /** 选择器wakenUp状态标记. */
+    /**
+     * 选择器wakenUp状态标记.
+     */
     protected final AtomicBoolean wakenUp = new AtomicBoolean();
-
-    /** 任务队列. */
+    /**
+     * 线程池.
+     */
+    private final Executor executor;
+    /**
+     * 任务队列.
+     */
     private final Queue<Runnable> taskQueue = new ConcurrentLinkedQueue<>();
-
-    /** 线程名称. */
-    private String threadName;
-
-    /** 线程管理对象. */
+    /**
+     * 选择器.
+     */
+    protected Selector selector;
+    /**
+     * 线程管理对象.
+     */
     protected NioSelectorRunnablePool selectorRunnablePool;
+    /**
+     * 线程名称.
+     */
+    private String threadName;
 
     protected AbstractNioSelector(Executor executor, String threadName, NioSelectorRunnablePool selectorRunnablePool) {
         this.executor = executor;
@@ -38,7 +45,9 @@ public abstract class AbstractNioSelector implements Runnable {
         openSelector();
     }
 
-    /** 获取selector并启动线程. */
+    /**
+     * 获取selector并启动线程.
+     */
     private void openSelector() {
         try {
             this.selector = Selector.open(); // 每一个的selector都不一样
@@ -66,14 +75,12 @@ public abstract class AbstractNioSelector implements Runnable {
 
     /**
      * 注册一个任务并激活selector.
-     * 
+     *
      * @param task
      */
     protected final void registerTask(Runnable task) {
         taskQueue.add(task);
-
         Selector selector = this.selector;
-
         if (selector != null) {
             if (wakenUp.compareAndSet(false, true)) {
                 selector.wakeup();
@@ -83,9 +90,11 @@ public abstract class AbstractNioSelector implements Runnable {
         }
     }
 
-    /** 执行队列里的任务. */
+    /**
+     * 执行队列里的任务.
+     */
     private void processTaskQueue() { // 怎么跳出死循环？
-        for (;;) {
+        for (; ; ) {
             final Runnable task = taskQueue.poll();
             if (task == null) {
                 break; // 取不到才跳出
@@ -96,7 +105,7 @@ public abstract class AbstractNioSelector implements Runnable {
 
     /**
      * 获取线程管理对象.
-     * 
+     *
      * @return
      */
     public NioSelectorRunnablePool getSelectorRunnablePool() {
@@ -105,7 +114,7 @@ public abstract class AbstractNioSelector implements Runnable {
 
     /**
      * Select抽象方法. 抽象方法，让Boss或者Worker具体进行实现
-     * 
+     *
      * @param selector
      * @return
      * @throws IOException
@@ -114,7 +123,7 @@ public abstract class AbstractNioSelector implements Runnable {
 
     /**
      * Selector的业务处理. 抽象方法，让Boss或者Worker具体进行实现
-     * 
+     *
      * @param selector
      * @throws IOException
      */

@@ -1,12 +1,13 @@
 package yuanjun.chen.netty.parody;
 
+import yuanjun.chen.netty.parody.boss.Boss;
+
 import java.net.SocketAddress;
 import java.nio.channels.ServerSocketChannel;
-import yuanjun.chen.netty.parody.boss.Boss;
 
 /**
  * 服务类.
- * 
+ *
  * @SpecialThanksTo -琴兽-
  */
 public class ServerBootstrap {
@@ -18,7 +19,7 @@ public class ServerBootstrap {
 
     /**
      * 绑定端口.
-     * 
+     *
      * @param localAddress
      */
     public void bind(final SocketAddress localAddress) {

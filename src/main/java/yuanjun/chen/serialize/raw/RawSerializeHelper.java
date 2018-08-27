@@ -25,7 +25,9 @@ import java.util.Random;
 public class RawSerializeHelper {
     private static final int magicFF = 0xff;
 
-    /** 简单对List<Integer>列表进行序列化操作. */
+    /**
+     * 简单对List<Integer>列表进行序列化操作.
+     */
     public static byte[] ints2Bytes(List<Integer> targs) throws Exception {
         ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
         for (Integer targ : targs) {
@@ -34,7 +36,9 @@ public class RawSerializeHelper {
         return arrayOutputStream.toByteArray();
     }
 
-    /** 简单对byte[]进行反序列化操作转换成List<Integer>. */
+    /**
+     * 简单对byte[]进行反序列化操作转换成List<Integer>.
+     */
     public static List<Integer> bytes2Ints(byte[] ashes) throws Exception {
         List<Integer> ll = new ArrayList<>();
         ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(ashes);
@@ -63,7 +67,7 @@ public class RawSerializeHelper {
 
     /**
      * 大端字节序列(先写高位，再写低位) 每一个int都占用4个字节，相对来说比较浪费空间.
-     * 
+     *
      * @param i
      * @return
      */
@@ -78,7 +82,7 @@ public class RawSerializeHelper {
 
     /**
      * 大端.
-     * 
+     *
      * @param bytes
      * @return
      */

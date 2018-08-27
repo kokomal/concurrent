@@ -9,14 +9,15 @@
  */
 package yuanjun.chen.lock;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import yuanjun.chen.common.Train;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import yuanjun.chen.common.Train;
 
 /**
  * @ClassName: SemaphoreDemo
@@ -26,48 +27,6 @@ import yuanjun.chen.common.Train;
  */
 public class SemaphoreDemo {
     private static final Logger logger = LogManager.getLogger(SemaphoreDemo.class);
-
-    public static class SodorIsland implements Runnable {
-        public static AtomicInteger counts = new AtomicInteger(0);
-        private Semaphore trainRails;
-        private Train train;
-
-        public SodorIsland(Semaphore trainRails, Train train) {
-            this.train = train;
-            this.trainRails = trainRails;
-        }
-
-        /** 每次处理耗时2000ms. */
-        private void polishCar() throws Exception {
-            logger.info("WELCOME! " + train + ", the available trainRails = " 
-                    + trainRails.availablePermits()); // 这个available不一定准确了,因为semaphore不排他
-            train.setFuel((float) (train.getFuel() * 1.2));
-            train.setCarriages(train.getCarriages() + 1);
-            Thread.sleep(2000); // 模拟polishcar的耗时
-            counts.incrementAndGet();
-            logger.info("GOODBYE! " + train);
-        }
-
-        public void run() {
-            boolean res = false;
-            try {
-                // logger.info("prepare parking " + train);
-                res = trainRails.tryAcquire(1000, TimeUnit.MILLISECONDS);
-                if (res) {
-                    polishCar();
-                } else {
-                    logger.info("failed parking " + train);
-                }
-            } catch (InterruptedException e) {
-                logger.info("InterruptedException failed " + train);
-            } catch (Exception ex) {
-            } finally {
-                if (res) {
-                    trainRails.release();
-                }
-            }
-        }
-    }
 
     public static void main(String[] args) throws Exception {
         int capacity = 10;
@@ -97,5 +56,49 @@ public class SemaphoreDemo {
                 break;
             }
         } while (true);
+    }
+
+    public static class SodorIsland implements Runnable {
+        public static AtomicInteger counts = new AtomicInteger(0);
+        private Semaphore trainRails;
+        private Train train;
+
+        public SodorIsland(Semaphore trainRails, Train train) {
+            this.train = train;
+            this.trainRails = trainRails;
+        }
+
+        /**
+         * 每次处理耗时2000ms.
+         */
+        private void polishCar() throws Exception {
+            logger.info("WELCOME! " + train + ", the available trainRails = "
+                    + trainRails.availablePermits()); // 这个available不一定准确了,因为semaphore不排他
+            train.setFuel((float) (train.getFuel() * 1.2));
+            train.setCarriages(train.getCarriages() + 1);
+            Thread.sleep(2000); // 模拟polishcar的耗时
+            counts.incrementAndGet();
+            logger.info("GOODBYE! " + train);
+        }
+
+        public void run() {
+            boolean res = false;
+            try {
+                // logger.info("prepare parking " + train);
+                res = trainRails.tryAcquire(1000, TimeUnit.MILLISECONDS);
+                if (res) {
+                    polishCar();
+                } else {
+                    logger.info("failed parking " + train);
+                }
+            } catch (InterruptedException e) {
+                logger.info("InterruptedException failed " + train);
+            } catch (Exception ex) {
+            } finally {
+                if (res) {
+                    trainRails.release();
+                }
+            }
+        }
     }
 }

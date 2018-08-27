@@ -9,18 +9,19 @@
  */
 package yuanjun.chen.serialize.kyro;
 
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.KryoException;
+import com.esotericsoftware.kryo.io.Input;
+import com.esotericsoftware.kryo.io.Output;
+import org.objenesis.strategy.StdInstantiatorStrategy;
+import yuanjun.chen.serialize.pojo.DemoPOJO;
+import yuanjun.chen.serialize.pojo.PojoUtils;
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import org.objenesis.strategy.StdInstantiatorStrategy;
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.KryoException;
-import com.esotericsoftware.kryo.io.Input;
-import com.esotericsoftware.kryo.io.Output;
-import yuanjun.chen.serialize.pojo.DemoPOJO;
-import yuanjun.chen.serialize.pojo.PojoUtils;
 
 /**
  * @ClassName: KyroHelper

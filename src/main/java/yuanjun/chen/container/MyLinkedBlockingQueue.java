@@ -23,12 +23,12 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date: 2018年8月2日 上午9:28:28
  */
 public class MyLinkedBlockingQueue<T extends Object> {
+    private final AtomicInteger count;
     private List<T> listval;
     private ReentrantLock lock;
     private Condition notFull;
     private Condition notEmpty;
     private int capacity;
-    private final AtomicInteger count;
 
     public MyLinkedBlockingQueue(int capacity) {
         this.capacity = capacity;
@@ -37,6 +37,22 @@ public class MyLinkedBlockingQueue<T extends Object> {
         notFull = lock.newCondition();
         notEmpty = lock.newCondition();
         count = new AtomicInteger();
+    }
+
+    public static void main(String[] args) throws Exception {
+        MyLinkedBlockingQueue<Integer> mq = new MyLinkedBlockingQueue<Integer>(4);
+        mq.add(11);
+        mq.add(22);
+        System.out.println(mq.take());
+        System.out.println(mq.take());
+        long t1 = System.currentTimeMillis();
+        try {
+            mq.take();
+        } catch (Exception e) {
+            System.out.println("did not fetch " + e);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println("fetch time " + (t2 - t1) + "ms");
     }
 
     public void add(T item) throws Exception {
@@ -66,7 +82,8 @@ public class MyLinkedBlockingQueue<T extends Object> {
             lock.unlock();
         }
     }
-        public T takeWithOT(long time, TimeUnit unit) throws Exception {
+
+    public T takeWithOT(long time, TimeUnit unit) throws Exception {
         lock.lock();
         try {
             while (this.count.get() == 0) {
@@ -81,20 +98,5 @@ public class MyLinkedBlockingQueue<T extends Object> {
         } finally {
             lock.unlock();
         }
-    }
-        public static void main(String[] args) throws Exception {
-        MyLinkedBlockingQueue<Integer> mq = new MyLinkedBlockingQueue<Integer>(4);
-        mq.add(11);
-        mq.add(22);
-        System.out.println(mq.take());
-        System.out.println(mq.take());
-        long t1 = System.currentTimeMillis();
-        try {
-            mq.take();
-        } catch (Exception e) {
-            System.out.println("did not fetch " + e);
-        }
-        long t2 = System.currentTimeMillis();
-        System.out.println("fetch time " + (t2 - t1) + "ms");
     }
 }

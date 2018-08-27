@@ -6,26 +6,46 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 范例POJO. */
+/**
+ * 范例POJO.
+ */
 public class DemoPOJO implements Serializable {
     private static final long serialVersionUID = 1L;
-    /** 自增主键. */
+    /**
+     * 自增主键.
+     */
     private Long id;
-    /** 交货期. */
+    /**
+     * 交货期.
+     */
     private Date deliveryDate;
-    /** 紧急程度. */
+    /**
+     * 紧急程度.
+     */
     private int urgentDegree;
-    /** 原材料费用. */
+    /**
+     * 原材料费用.
+     */
     private BigDecimal materialCost;
-    /** 人工费用. */
+    /**
+     * 人工费用.
+     */
     private BigDecimal remunerateCost;
-    /** 运输优先级. */
+    /**
+     * 运输优先级.
+     */
     private int transportPriority;
-    /** 预留优先级A. */
+    /**
+     * 预留优先级A.
+     */
     private int reservedPriorityA;
-    /** 预留优先级B. */
+    /**
+     * 预留优先级B.
+     */
     private int reservedPriorityB;
-    /** 预留优先级C. */
+    /**
+     * 预留优先级C.
+     */
     private int reservedPriorityC;
 
     private Map<Integer, String> mp = new HashMap<>();
@@ -38,7 +58,9 @@ public class DemoPOJO implements Serializable {
         this.mp = mp;
     }
 
-    /** =====Getters and Setters below=====. */
+    /**
+     * =====Getters and Setters below=====.
+     */
     public Long getId() {
         return id;
     }

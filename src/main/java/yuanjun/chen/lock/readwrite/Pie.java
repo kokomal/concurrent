@@ -10,9 +10,9 @@
 package yuanjun.chen.lock.readwrite;
 
 /**
+ * @author : 陈元俊
  * @ClassName : PieData
  * @Description : TODO(这里用一句话描述这个类的作用)
- * @author : 陈元俊
  * @date : 2018年8月15日 下午3:06:35
  */
 public class Pie {

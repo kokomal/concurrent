@@ -23,15 +23,15 @@ public class Train {
     private Float fuel;
     private int carriages;
 
-    public static Train genUUTrain() {
-        Random rd = new Random();
-        return new Train(UUID.randomUUID().toString(), (float) (rd.nextFloat() % 1000.0), rd.nextInt(200));
-    }
-
     public Train(String name, Float fuel, int carriages) {
         this.name = name;
         this.fuel = fuel;
         this.carriages = carriages;
+    }
+
+    public static Train genUUTrain() {
+        Random rd = new Random();
+        return new Train(UUID.randomUUID().toString(), (float) (rd.nextFloat() % 1000.0), rd.nextInt(200));
     }
 
     public String getName() {

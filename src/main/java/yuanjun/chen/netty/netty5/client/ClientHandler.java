@@ -5,9 +5,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
  * 客户端消息处理
- * 
- * @SpecialThanksTo -琴兽-
  *
+ * @SpecialThanksTo -琴兽-
  */
 public class ClientHandler extends SimpleChannelInboundHandler<String> {
 

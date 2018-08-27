@@ -9,12 +9,13 @@
  */
 package yuanjun.chen.serialize.raw;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 
 /**
  * @ClassName: NettyChannelBufferSerializeHelper

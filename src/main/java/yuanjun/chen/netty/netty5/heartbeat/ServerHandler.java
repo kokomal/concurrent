@@ -9,9 +9,8 @@ import io.netty.handler.timeout.IdleStateEvent;
 
 /**
  * 服务端消息处理
- * 
- * @SpecialThanksTo -琴兽-
  *
+ * @SpecialThanksTo -琴兽-
  */
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
 

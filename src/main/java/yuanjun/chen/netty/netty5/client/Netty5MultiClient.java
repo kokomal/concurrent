@@ -1,9 +1,5 @@
 package yuanjun.chen.netty.netty5.client;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -14,13 +10,31 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * 多连接客户端
- * 
- * @author -琴兽-
  *
+ * @author -琴兽-
  */
 public class Netty5MultiClient {
+
+    /**
+     * 引用计数
+     */
+    private final AtomicInteger index = new AtomicInteger();
+    private int port;
+    /**
+     * 服务类
+     */
+    private Bootstrap bootstrap = new Bootstrap();
+    /**
+     * 会话
+     */
+    private List<Channel> channels = new ArrayList<>();
 
     public static void start(int nCli, int port) {
         Netty5MultiClient client = new Netty5MultiClient();
@@ -36,23 +50,9 @@ public class Netty5MultiClient {
         }
     }
 
-    private int port;
-    /**
-     * 服务类
-     */
-    private Bootstrap bootstrap = new Bootstrap();
-    /**
-     * 会话
-     */
-    private List<Channel> channels = new ArrayList<>();
-    /**
-     * 引用计数
-     */
-    private final AtomicInteger index = new AtomicInteger();
-
     /**
      * 初始化
-     * 
+     *
      * @param count
      */
     public void init(int count, int port) {
@@ -81,7 +81,7 @@ public class Netty5MultiClient {
 
     /**
      * 获取会话
-     * 
+     *
      * @return
      */
     public Channel nextChannel() {
@@ -105,7 +105,7 @@ public class Netty5MultiClient {
 
     /**
      * 重连
-     * 
+     *
      * @param channel
      */
     private void reconnect(Channel channel) {

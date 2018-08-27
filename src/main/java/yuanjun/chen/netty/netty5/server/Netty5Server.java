@@ -10,11 +10,7 @@
 package yuanjun.chen.netty.netty5.server;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
@@ -30,9 +26,9 @@ import io.netty.handler.codec.string.StringEncoder;
 public class Netty5Server {
 
     /**
+     * @param port
      * @Title: init
      * @Description: 初始化
-     * @param port
      * @return: void
      */
     public static void start(int port) {

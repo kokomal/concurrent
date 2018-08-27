@@ -12,7 +12,9 @@ import java.util.UUID;
  * @author hp
  */
 public class NioFileStreamDemo {
-    /** 从原始路径拷贝文件到新路径 如果新路径不存在，则新建，已有，则尾部添加. */
+    /**
+     * 从原始路径拷贝文件到新路径 如果新路径不存在，则新建，已有，则尾部添加.
+     */
     public static void nioCopyFile(String srcFile, String destFile) throws Exception {
         FileInputStream fis = new FileInputStream(srcFile);
         FileOutputStream fos = new FileOutputStream(destFile, true); // appendable
@@ -38,7 +40,7 @@ public class NioFileStreamDemo {
 
     /**
      * 官方demo.
-     * 
+     *
      * @throws Exception
      */
     public static void readViaNio(String srcFile) throws Exception {
