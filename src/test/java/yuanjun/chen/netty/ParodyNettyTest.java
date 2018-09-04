@@ -1,7 +1,7 @@
 /**
  * @Title: ParodyNettyTest.java
  * @Package: yuanjun.chen.netty
- * @Description: TODO(用一句话描述该文件做什么)
+ * @Description: 测试自己实现的netty的demo
  * @author: 陈元俊
  * @date: 2018年8月16日 下午6:02:57
  * @version V1.0
@@ -18,7 +18,7 @@ import yuanjun.chen.nio.NioServerClientTest.Cli;
 
 /**
  * @ClassName: ParodyNettyTest
- * @Description: TODO(这里用一句话描述这个类的作用)
+ * @Description: 测试自己实现的netty的demo
  * @author: 陈元俊
  * @date: 2018年8月16日 下午6:02:57
  */

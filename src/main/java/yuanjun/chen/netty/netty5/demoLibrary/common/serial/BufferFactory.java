@@ -1,4 +1,4 @@
-package yuanjun.chen.nio.demoLibrary.serial;
+package yuanjun.chen.netty.netty5.demoLibrary.common.serial;
 
 import java.nio.ByteOrder;
 import io.netty.buffer.ByteBuf;
@@ -7,7 +7,7 @@ import io.netty.buffer.Unpooled;
 /**
  * Buff工厂.
  * 
- * @author -琴兽-
+ * @SpecialThanksTo -琴兽-
  */
 public class BufferFactory {
     public static ByteOrder BYTE_ORDER = ByteOrder.BIG_ENDIAN;

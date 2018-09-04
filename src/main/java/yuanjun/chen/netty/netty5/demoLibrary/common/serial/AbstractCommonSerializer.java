@@ -7,7 +7,7 @@
  * @version V1.0
  * @Copyright: 2018 All rights reserved.
  */
-package yuanjun.chen.nio.demoLibrary.serial;
+package yuanjun.chen.netty.netty5.demoLibrary.common.serial;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;

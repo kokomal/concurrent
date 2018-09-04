@@ -1,4 +1,4 @@
-package yuanjun.chen.netty.netty5.client;
+package yuanjun.chen.netty.netty5example.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;

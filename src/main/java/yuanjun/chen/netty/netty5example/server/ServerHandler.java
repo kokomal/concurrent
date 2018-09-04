@@ -1,4 +1,4 @@
-package yuanjun.chen.netty.netty5.server;
+package yuanjun.chen.netty.netty5example.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
