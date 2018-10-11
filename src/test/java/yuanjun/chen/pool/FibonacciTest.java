@@ -10,6 +10,8 @@
 package yuanjun.chen.pool;
 
 import java.math.BigDecimal;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import org.junit.Test;
@@ -53,6 +55,12 @@ public class FibonacciTest {
         int targ = 44;
         System.out.println("Loop Fibonacci(" + targ + ") = " + loopFibonacci(44));
     }
+    
+    @Test
+    public void testCachedFibonacci() {
+        int targ = 44;
+        System.out.println("Cached recursive Fibonacci(" + targ + ") = " + cachedRecursiveFibonacci(44));
+    }
 
     /**
      * @Title: fiboRecursive
@@ -78,6 +86,29 @@ public class FibonacciTest {
             return fn_2;
         }
         return smartFiboRecursive(n - 1, fn_1, fn_2.add(fn_1));
+    }
+
+    private static Map<Integer, BigDecimal> cache = new ConcurrentHashMap<>();
+    static {
+        cache.put(0, new BigDecimal(0));
+        cache.put(1, new BigDecimal(1));
+    }
+    
+    /**   
+     * @Title: cachedRecursiveFibonacci   
+     * @Description: 带缓存的fibonacci 
+     * @param n
+     * @return      
+     * @return: BigDecimal      
+     */
+    private static BigDecimal cachedRecursiveFibonacci(int n) {
+        if (cache.containsKey(n)) {
+            return cache.get(n);
+        }
+        BigDecimal res = cachedRecursiveFibonacci(n - 1)
+                .add(cachedRecursiveFibonacci(n - 2));
+        cache.put(n, res);
+        return res;
     }
 
     /**
