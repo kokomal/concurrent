@@ -24,12 +24,12 @@ import org.junit.Test;
  */
 public class FibonacciTest {
 
-    private static final BigDecimal ZERO = new BigDecimal(0);
-    private static final BigDecimal ONE = new BigDecimal(1);
+    private static final BigDecimal ZERO = BigDecimal.ZERO;
+    private static final BigDecimal ONE = BigDecimal.ONE;
 
     @Test
     public void testFibonacci() throws Exception {
-        int n = 44;
+        int n = 47;
         FibobacciTask fb = new FibobacciTask(n);
         ForkJoinPool pool = ForkJoinPool.commonPool(); // 不太推荐用new，而是用工厂
         BigDecimal k = pool.submit(fb).get();
@@ -40,26 +40,26 @@ public class FibonacciTest {
 
     @Test
     public void testRecursiveFibonacci() {
-        int targ = 45;
-        System.out.println("Recursive Fibonacci(" + targ + ") = " + fiboRecursive(44));
+        int targ = 47;
+        System.out.println("Recursive Fibonacci(" + targ + ") = " + fiboRecursive(targ));
     }
 
     @Test
     public void testTailRecursiveFibonacci() {
-        int targ = 44;
+        int targ = 47;
         System.out.println("Tail Fibonacci(" + targ + ") = " + smartFiboRecursive(targ, ZERO, ONE));
     }
     
     @Test
     public void testLoopFibonacci() {
-        int targ = 44;
-        System.out.println("Loop Fibonacci(" + targ + ") = " + loopFibonacci(44));
+        int targ = 47;
+        System.out.println("Loop Fibonacci(" + targ + ") = " + loopFibonacci(targ));
     }
     
     @Test
     public void testCachedFibonacci() {
-        int targ = 44;
-        System.out.println("Cached recursive Fibonacci(" + targ + ") = " + cachedRecursiveFibonacci(44));
+        int targ = 47;
+        System.out.println("Cached recursive Fibonacci(" + targ + ") = " + cachedRecursiveFibonacci(targ));
     }
 
     /**
