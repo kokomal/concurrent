@@ -90,8 +90,8 @@ public class FibonacciTest {
 
     private static Map<Integer, BigDecimal> cache = new ConcurrentHashMap<>();
     static {
-        cache.put(0, new BigDecimal(0));
-        cache.put(1, new BigDecimal(1));
+        cache.put(0, ZERO);
+        cache.put(1, ONE);
     }
     
     /**   
