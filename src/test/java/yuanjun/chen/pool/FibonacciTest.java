@@ -61,6 +61,14 @@ public class FibonacciTest {
         int targ = 47;
         System.out.println("Cached recursive Fibonacci(" + targ + ") = " + cachedRecursiveFibonacci(targ));
     }
+    
+    @Test
+    public void testNCachedFibonacci() {
+        int targ = 47;
+        for (int i = 0; i < targ; i++) {
+            System.out.println("Cached recursive Fibonacci(" + i + ") = " + cachedRecursiveFibonacci(i));
+        }
+    }
 
     /**
      * @Title: fiboRecursive
